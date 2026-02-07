@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Header() {
     return (
@@ -10,7 +11,7 @@ export default function Header() {
                 <div className="flex items-center gap-3 ">
                     <Image
                         src="/assets/images/logo.svg"
-                        alt="Blog"
+                        alt="Blog Logo"
                         width={100}
                         height={80}
                         className="h-10 w-auto rounded-lg"
@@ -19,7 +20,11 @@ export default function Header() {
                         Blog
                     </h1>
                 </div>
-                <Nav/>
+
+                <div className="flex items-center gap-3">
+                    <Nav/>
+                    <ThemeToggle/>
+                </div>
             </div>
         </header>
     );
