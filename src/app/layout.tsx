@@ -3,6 +3,7 @@ import type {Metadata} from "next";
 import "./globals.css";
 import Header from "@/components/sections/Header";
 import AxeAccessibilityInit from "@/components/AxeAccessibilityInit";
+import Aside from "@/components/sections/Aside";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -33,6 +34,7 @@ export default function RootLayout({
             <main id="main-content" role="main">
                 {children}
             </main>
+            <Aside/>
         </div>
 
         <AxeAccessibilityInit/>
