@@ -1,27 +1,41 @@
 "use client";
 
-import FeaturedPost from "@/components/ui/FeaturedPost";
+import FeaturedPost from "@/components/sections/FeaturedPost";
+import CardPost from "@/components/ui/CardPost";
 import {usePosts} from "@/contexts/PostsContext";
-import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
 
 export default function Home() {
-    const {getFeaturedPost, loading, error} = usePosts();
+    const {posts, getFeaturedPost, loading, error} = usePosts();
     const featuredPost = getFeaturedPost();
-
-    if (loading) {
-        return <Loading/>
-    }
-
-    if (error) {
-        return <Error error={error}/>
-    }
+    const regularPosts = posts.filter(post => !post.isFeatured);
 
     return (
         <div className="flex flex-col min-h-screen w-full bg-zinc-50 dark:bg-transparent rounded-md shadow">
             <div className="max-w-6xl mx-auto px-4 space-y-8">
-                {featuredPost && <FeaturedPost post={featuredPost}/>}
+                {loading && <Loading/>}
+
+                {error && <Error error={error}/>}
+
+                {!loading && !error && posts.length === 0 && (
+                    <div className="py-8">
+                        <p className="text-center text-gray-600 dark:text-gray-400">
+                            no posts found. Please check back later or try refreshing the page.
+                        </p>
+                    </div>
+                )}
+
+                {!loading && !error && featuredPost && (
+                    <FeaturedPost post={featuredPost}/>
+                )}
+
+                {!loading && !error && regularPosts.map((post) => (
+                    <CardPost key={post?.id} post={post}/>
+                ))}
             </div>
         </div>
     );
 }
+
+
