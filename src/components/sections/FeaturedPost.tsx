@@ -11,7 +11,7 @@ export default function FeaturedPost({post}: { post: Post }) {
             <div className="relative h-64 w-full md:h-80 lg:h-96 overflow-hidden">
                 <div className="absolute top-4 right-4 z-10">
                     <span
-                        className="inline-block bg-cyan-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                        className="inline-block bg-cyan-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
                         ✨ Featured
                     </span>
                 </div>
@@ -33,7 +33,7 @@ export default function FeaturedPost({post}: { post: Post }) {
                 </h2>
                 {post.subtitle && (
                     <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-3 uppercase tracking-wide">
-                        {post.subtitle}
+                        Published on {post.date}
                     </p>
                 )}
                 {post.excerpt && (

@@ -16,6 +16,7 @@ export const posts: Post[] = [
     {
         id: "responsible-ai-evals",
         title: "Responsible AI evaluations that actually catch regressions",
+        subtitle: "Published on 6 February 2026",
         date: "7 February 2026",
         excerpt:
             "A lightweight evaluation loop you can automate in CI: baselines, golden sets, and drift alerts without slowing teams down.",
@@ -23,6 +24,7 @@ export const posts: Post[] = [
     {
         id: "privacy-first-ml",
         title: "Privacy-first ML pipelines for regulated data",
+        subtitle: "Published on 6 February 2026",
         date: "5 February 2026",
         excerpt:
             "From minimization to retention and audit trails, a practical checklist for teams handling sensitive inputs.",
@@ -30,6 +32,7 @@ export const posts: Post[] = [
     {
         id: "secure-prompting",
         title: "Secure prompting patterns for tool-using agents",
+        subtitle: "Published on 6 February 2026",
         date: "2 February 2026",
         excerpt:
             "Threat models, guard clauses, and output contracts that reduce prompt-injection risk in real systems.",
@@ -37,6 +40,7 @@ export const posts: Post[] = [
     {
         id: "observability-ml",
         title: "Observability for ML: metrics that matter",
+        subtitle: "Published on 6 February 2026",
         date: "31 January 2026",
         excerpt:
             "A focused set of signals for quality, cost, and reliability, plus how to make them actionable.",
@@ -44,6 +48,7 @@ export const posts: Post[] = [
     {
         id: "accessibility-ai",
         title: "Designing AI features with accessibility in mind",
+        subtitle: "Published on 6 February 2026",
         date: "28 January 2026",
         excerpt:
             "Inclusive defaults, assistive tech compatibility, and content patterns that improve outcomes for everyone.",

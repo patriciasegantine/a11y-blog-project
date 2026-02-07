@@ -20,7 +20,7 @@ export default function RecentPosts({title = "Recent Posts", posts}: RecentPosts
                             href={`#${post.id}`}
                             className="block group"
                         >
-                            <h4 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition line-clamp-2">
+                            <h4 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 group-hover:text-cyan-600 dark:group-hover:text-cyan-600 transition line-clamp-2">
                                 {post.title}
                             </h4>
                             <time className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 block">
