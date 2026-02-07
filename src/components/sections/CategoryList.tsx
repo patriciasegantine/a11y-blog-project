@@ -16,7 +16,7 @@ export default function CategoryList({title = "Categorias", categories}: Categor
                         <li key={category}>
                             <a
                                 href="#"
-                                className="block bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-cyan-400 dark:hover:bg-cyan-800 transition"
+                                className="block bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-cyan-700 hover:text-white dark:hover:bg-cyan-700 dark:hover:text-white transition"
                             >
                                 {category}
                             </a>

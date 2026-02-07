@@ -3,6 +3,7 @@ import type {Metadata} from "next";
 import "./globals.css";
 import Header from "@/components/sections/Header";
 import AxeAccessibilityInit from "@/components/AxeAccessibilityInit";
+import {PostsProvider} from "@/contexts/PostsContext";
 import Aside from "@/components/sections/Aside";
 
 export const metadata: Metadata = {
@@ -27,17 +28,18 @@ export default function RootLayout({
             />
         </head>
         <body className="antialiased" suppressHydrationWarning>
+        <PostsProvider>
+            <Header/>
 
-        <Header/>
+            <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_16rem] gap-8">
+                <main id="main-content" role="main">
+                    {children}
+                </main>
+                <Aside/>
+            </div>
 
-        <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_16rem] gap-8">
-            <main id="main-content" role="main">
-                {children}
-            </main>
-            <Aside/>
-        </div>
-
-        <AxeAccessibilityInit/>
+            <AxeAccessibilityInit/>
+        </PostsProvider>
         </body>
         </html>
     );

@@ -1,37 +1,47 @@
 import Image from "next/image";
-import {Featured} from "@/types/post";
+import {Post} from "@/types/post";
 import LinkButton from "@/components/ui/LinkButton";
 
-export default function FeaturedPost({feature}: { feature: Featured }) {
+export default function FeaturedPost({post}: { post: Post }) {
+    if (!post.isFeatured) return null;
+
     return (
         <article
-            className="overflow-hidden rounded-lg bg-white dark:bg-zinc-800 shadow border border-zinc-400 dark:border-zinc-700">
-            <div className="relative h-64 w-full md:h-80 lg:h-96">
-                <Image
-                    src={feature.imageSrc}
-                    alt={feature.imageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                    priority
-                />
+            className="group overflow-hidden rounded-2xl bg-white dark:bg-zinc-800 shadow-md hover:shadow-xl transition-shadow duration-300">
+            <div className="relative h-64 w-full md:h-80 lg:h-96 overflow-hidden">
+                <div className="absolute top-4 right-4 z-10">
+                    <span
+                        className="inline-block bg-cyan-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                        ✨ Featured
+                    </span>
+                </div>
+                {post.imageSrc && (
+                    <Image
+                        src={post.imageSrc}
+                        alt={post.imageAlt || post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                        priority
+                    />
+                )}
             </div>
 
-            <div className="p-6">
-                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-2">
-                    {feature.title}
+            <div className="p-8">
+                <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-3 leading-tight">
+                    {post.title}
                 </h2>
-                {feature.subtitle && (
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
-                        {feature.subtitle}
+                {post.subtitle && (
+                    <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-3 uppercase tracking-wide">
+                        {post.subtitle}
                     </p>
                 )}
-                {feature.excerpt && (
-                    <p className="text-zinc-700 dark:text-zinc-300 mb-4">{feature.excerpt}</p>
+                {post.excerpt && (
+                    <p className="text-zinc-600 dark:text-zinc-300 mb-6 leading-relaxed">{post.excerpt}</p>
                 )}
-                <div className="flex justify-center">
-                    <LinkButton href={feature.href} ariaLabel={`Learn more about: ${feature.title}`} variant="cyan">
-                        Learn more
+                <div className="flex">
+                    <LinkButton href={`#${post.id}`} ariaLabel={`Learn more about: ${post.title}`} variant="cyan">
+                        Read more
                     </LinkButton>
                 </div>
             </div>
