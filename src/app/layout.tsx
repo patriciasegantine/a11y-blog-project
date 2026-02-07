@@ -5,6 +5,7 @@ import Header from "@/components/sections/Header";
 import AxeAccessibilityInit from "@/components/AxeAccessibilityInit";
 import {PostsProvider} from "@/contexts/PostsContext";
 import Aside from "@/components/sections/Aside";
+import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -38,6 +39,7 @@ export default function RootLayout({
                 <Aside/>
             </div>
 
+            <Footer/>
             <AxeAccessibilityInit/>
         </PostsProvider>
         </body>
