@@ -7,18 +7,32 @@ export default function Header() {
         <header
             className="w-full bg-zinc-50 dark:bg-zinc-800 border-b sticky top-0 z-50 border-zinc-200 dark:border-zinc-800"
         >
-            <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3 ">
+            <div className="flex justify-between items-center gap-3 px-4 py-3">
+                <div className="flex items-center gap-3">
+                    {/* Light mode logo */}
                     <Image
                         src="/assets/images/logo.svg"
                         alt="Blog Logo"
                         width={100}
                         height={80}
-                        className="h-10 w-auto rounded-lg"
+                        className="h-10 w-auto rounded-lg dark:hidden"
                     />
-                    <h1 className="text-2xl font-bold text-zinc-900 dark:text-white">
-                        Blog
-                    </h1>
+                    {/* Dark mode logo */}
+                    <Image
+                        src="/assets/images/logo-dark.svg"
+                        alt="Blog Logo"
+                        width={100}
+                        height={80}
+                        className="h-10 w-auto rounded-lg hidden dark:block"
+                    />
+                    <div className="flex flex-col">
+                        <h1 className="text-xl font-bold text-zinc-900 dark:text-white">
+                            The No-Manual Life
+                        </h1>
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                            Figuring life out, one mistake at a time.
+                        </span>
+                    </div>
                 </div>
 
                 <div className="flex items-center gap-3">

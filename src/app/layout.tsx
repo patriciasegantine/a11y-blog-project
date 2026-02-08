@@ -8,8 +8,8 @@ import Aside from "@/components/sections/Aside";
 import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
-    title: "Blog",
-    description: "Blog",
+    title: "The No-Manual Life",
+    description: "Figuring life out, one mistake at a time.",
 };
 
 export default function RootLayout({
@@ -23,10 +23,6 @@ export default function RootLayout({
             <title>Blog</title>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""/>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-                rel="stylesheet"
-            />
         </head>
         <body className="antialiased">
         <PostsProvider>
