@@ -1,14 +1,13 @@
 export enum Category {
-    AI_ML = "AI & Machine Learning",
-    SECURITY_PRIVACY = "Security & Privacy",
-    DEVOPS_MLOPS = "DevOps & MLOps",
-    ACCESSIBILITY_UX = "Accessibility & UX",
+    IDENTITY_TIME = "Identity & time",
+    WORK_MONEY_MEANING = "Work, money & meaning",
+    MENTAL_HEALTH = "Mental health (unfiltered)",
+    SLOW_GROWTH_REAL_LIFE = "Slow growth / real life",
 }
 
 export const categoryLabels: Record<Category, string> = {
-    [Category.AI_ML]: "AI & Machine Learning",
-    [Category.SECURITY_PRIVACY]: "Security & Privacy",
-    [Category.DEVOPS_MLOPS]: "DevOps & MLOps",
-    [Category.ACCESSIBILITY_UX]: "Accessibility & UX",
+    [Category.IDENTITY_TIME]: "Identity & time",
+    [Category.WORK_MONEY_MEANING]: "Work, money & meaning",
+    [Category.MENTAL_HEALTH]: "Mental health (unfiltered)",
+    [Category.SLOW_GROWTH_REAL_LIFE]: "Slow growth / real life",
 };
-

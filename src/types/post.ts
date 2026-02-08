@@ -1,3 +1,5 @@
+import {Category} from "@/types/category";
+
 export type Post = {
     id: string;
     title: string;
@@ -7,4 +9,6 @@ export type Post = {
     imageSrc?: string;
     imageAlt?: string;
     subtitle?: string;
+    category?: Category;
+    tags: string[];
 };

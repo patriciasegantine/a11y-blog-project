@@ -6,7 +6,7 @@ type CategoryListProps = {
     categories: Category[];
 };
 
-export default function CategoryList({title = "Categorias", categories}: CategoryListProps) {
+export default function CategoryList({title = "Categories", categories}: CategoryListProps) {
     const headingId = "aside-categories";
     return (
         <section aria-labelledby={headingId}>
