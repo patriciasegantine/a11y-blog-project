@@ -2,6 +2,7 @@ import Image from "next/image";
 import {Post} from "@/types/post";
 import LinkButton from "@/components/ui/LinkButton";
 import {formatPostDate} from "@/utils/formatPostDate";
+import ImageCreditOverlay from "@/components/ui/ImageCreditOverlay";
 
 export default function FeaturedPost({post}: { post: Post }) {
     if (!post.isFeatured) return null;
@@ -26,14 +27,15 @@ export default function FeaturedPost({post}: { post: Post }) {
                         priority
                     />
                 )}
+                <ImageCreditOverlay author={post?.imageCredit} source={post?.imageSource}/>
             </div>
 
             <div className="p-8">
-                <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-3 leading-tight">
+                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-3 leading-tight">
                     {post.title}
                 </h2>
                 {post.subtitle && (
-                    <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-3 uppercase tracking-wide">
+                    <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-3 uppercase tracking-wide">
                         Published on {formatPostDate(post)}
                     </p>
                 )}

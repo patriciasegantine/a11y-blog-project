@@ -10,9 +10,10 @@ export default function CategoryList({title = "Categories", categories}: Categor
     const headingId = "aside-categories";
     return (
         <section aria-labelledby={headingId}>
-            <h3 id={headingId} className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+            <strong id={headingId} className="text-lg font-semibold text-zinc-900 dark:text-white mb-4 block">
                 {title}
-            </h3>
+            </strong>
+            
             <nav aria-label={title}>
                 <ul className="flex flex-wrap gap-2">
                     {categories.map((category) => (

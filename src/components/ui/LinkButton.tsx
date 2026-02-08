@@ -17,7 +17,7 @@ export default function LinkButton({
                                        ...props
                                    }: LinkButtonProps) {
     const base =
-        "inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-all duration-200 ease-in-out shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+        "inline-flex items-center gap-2 px-5 py-2 rounded-full font-medium transition-all duration-200 ease-in-out shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
     const variants: Record<Variant, string> = {
         dark:

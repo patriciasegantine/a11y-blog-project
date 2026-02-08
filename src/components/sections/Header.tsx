@@ -9,21 +9,13 @@ export default function Header() {
         >
             <div className="flex justify-between items-center gap-3 px-4 py-3">
                 <div className="flex items-center gap-3">
-                    {/* Light mode logo */}
-                    <Image
-                        src="/assets/images/logo.svg"
-                        alt="Blog Logo"
-                        width={100}
-                        height={80}
-                        className="h-10 w-auto rounded-lg dark:hidden"
-                    />
-                    {/* Dark mode logo */}
                     <Image
                         src="/assets/images/logo-dark.svg"
-                        alt="Blog Logo"
+                        alt="The No-Manual Life"
                         width={100}
                         height={80}
                         className="h-10 w-auto rounded-lg hidden dark:block"
+                        aria-hidden="true"
                     />
                     <div className="flex flex-col">
                         <h1 className="text-xl font-bold text-zinc-900 dark:text-white">

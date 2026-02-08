@@ -4,13 +4,13 @@ import {Category} from "@/types/category";
 const posts: Post[] = [
     {
         id: "7c9c4c9a-3c2e-4e6a-9c92-1e8c2a9a1f01",
-        title: "Everyone Else Seems Ahead — What You’re Not Seeing (and Why You’re Not Late)",
+        title: "Everyone Else Seems Ahead — What You're Not Seeing (and Why You're Not Late)",
         date: "2026-02-08T00:00:00Z",
-        subtitle:
-            "Behind every ‘overnight success’ there is invisible context. How to stop comparing timelines and reconnect with your own pace.",
-        imageSrc: "https://source.unsplash.com/1600x900/?time,city,people",
-        imageAlt:
-            "People walking quickly through a city, symbolising comparison, pressure, and the passage of time",
+        subtitle: "Behind every 'overnight success' there is invisible context. How to stop comparing timelines and reconnect with your own pace.",
+        imageSrc: "https://images.unsplash.com/photo-1541397436527-c5d6df584ce1?q=80&w=2000",
+        imageAlt: "A man standing on a train platform wearing a tan coat and black backpack, watching a blur of a green and blue train speed past. The word 'Edward' is visible on the train window.",
+        imageCredit: 'kwan fung',
+        imageSource: "unsplash.com",
         isFeatured: true,
         category: Category.IDENTITY_TIME,
         tags: ["comparison", "time", "self-knowledge", "anxiety", "routine"],
@@ -24,8 +24,9 @@ const posts: Post[] = [
         subtitle:
             "When life no longer resembles the original plan, identity can be rebuilt gently — without erasing who you’ve already been.",
         imageSrc: "https://source.unsplash.com/1600x900/?mirror,reflection",
-        imageAlt:
-            "A reflection in a mirror, suggesting identity, change, and self-recognition",
+        imageAlt: "A reflection in a mirror, suggesting identity, change, and self-recognition",
+        imageCredit: 'kwan fung',
+        imageSource: "unsplash.com",
         category: Category.IDENTITY_TIME,
         tags: ["identity", "transition", "purpose", "change", "self-compassion"],
         content:
@@ -45,6 +46,7 @@ const posts: Post[] = [
         content:
             "‘I’m behind’ often sounds like a diagnosis — but it’s actually a feeling. It shows up when you believe there is a single ‘correct’ pace for life and that you’ve failed to keep up. That pace, however, usually comes from inherited expectations: family, the job market, social media, friends, or an idealised version of yourself. To ground yourself, replace the question ‘Am I behind?’ with ‘Behind compared to what, exactly?’. Behind for whom? With which resources? Under what conditions? Facts tend to have clear criteria; emotions are heavy, vague, and all-encompassing. Criteria help. Do you want financial stability? Health? Time? Relationships? When you define what genuinely matters to you, the sense of being ‘behind’ loses its grip — because you stop running towards goals that were never really yours.",
     },
+
     {
         id: "8c1e7f22-4a5d-4b9a-9d6f-3c2a8e91b233",
         title: "A Stable Job Shouldn’t Cost You Your Mental Health",
