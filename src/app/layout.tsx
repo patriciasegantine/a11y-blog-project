@@ -1,16 +1,21 @@
 import React from "react";
 import type {Metadata} from "next";
+import {Inter} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/sections/Header";
 import AxeAccessibilityInit from "@/components/AxeAccessibilityInit";
-import {PostsProvider} from "@/contexts/PostsContext";
 import Aside from "@/components/sections/Aside";
 import Footer from "@/components/sections/Footer";
+import {siteMetadata} from "@/lib/metadata/siteMetadata";
 
-export const metadata: Metadata = {
-    title: "The No-Manual Life",
-    description: "Figuring life out, one mistake at a time.",
-};
+const inter = Inter({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    display: 'swap',
+    variable: '--font-inter',
+});
+
+export const metadata: Metadata = siteMetadata;
 
 export default function RootLayout({
                                        children,
@@ -18,26 +23,20 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-        <head>
-            <title>Blog</title>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""/>
-        </head>
-        <body className="antialiased">
-        <PostsProvider>
-            <Header/>
+        <html lang="en" className={inter.variable}>
 
-            <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_16rem] gap-8">
-                <main id="main-content" role="main">
-                    {children}
-                </main>
-                <Aside/>
-            </div>
+        <body className={`${inter.className} antialiased`}>
+        <Header/>
 
-            <Footer/>
-            <AxeAccessibilityInit/>
-        </PostsProvider>
+        <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_16rem] gap-8">
+            <main id="main-content" role="main">
+                {children}
+            </main>
+            <Aside/>
+        </div>
+
+        <Footer/>
+        <AxeAccessibilityInit/>
         </body>
         </html>
     );
