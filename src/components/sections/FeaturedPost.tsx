@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {Post} from "@/types/post";
 import LinkButton from "@/components/ui/LinkButton";
+import {formatPostDate} from "@/utils/formatPostDate";
 
 export default function FeaturedPost({post}: { post: Post }) {
     if (!post.isFeatured) return null;
@@ -33,14 +34,14 @@ export default function FeaturedPost({post}: { post: Post }) {
                 </h2>
                 {post.subtitle && (
                     <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-3 uppercase tracking-wide">
-                        Published on {post.date}
+                        Published on {formatPostDate(post)}
                     </p>
                 )}
                 {post.subtitle && (
                     <p className="text-zinc-600 dark:text-zinc-300 mb-6 leading-relaxed">{post.subtitle}</p>
                 )}
                 <div className="flex">
-                    <LinkButton href={`#${post.id}`} ariaLabel={`Learn more about: ${post.title}`} variant="cyan">
+                    <LinkButton href={`/post/${post.id}`} ariaLabel={`Learn more about: ${post.title}`} variant="cyan">
                         Read more
                     </LinkButton>
                 </div>

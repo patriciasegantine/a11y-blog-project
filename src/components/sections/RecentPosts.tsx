@@ -1,5 +1,6 @@
 import React from "react";
 import {Post} from "@/types/post";
+import {formatPostDate} from "@/utils/formatPostDate";
 
 type RecentPostsProps = {
     title?: string;
@@ -24,7 +25,7 @@ export default function RecentPosts({title = "Recent Posts", posts}: RecentPosts
                                 {post.title}
                             </h4>
                             <time className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 block">
-                                {post.date}
+                                {formatPostDate(post)}
                             </time>
                         </a>
                     </li>
