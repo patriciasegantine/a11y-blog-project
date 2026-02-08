@@ -1,6 +1,9 @@
+import Link from "next/link";
+import {Category, categoryLabels} from "@/types/category";
+
 type CategoryListProps = {
     title?: string;
-    categories: string[];
+    categories: Category[];
 };
 
 export default function CategoryList({title = "Categorias", categories}: CategoryListProps) {
@@ -14,12 +17,12 @@ export default function CategoryList({title = "Categorias", categories}: Categor
                 <ul className="flex flex-wrap gap-2">
                     {categories.map((category) => (
                         <li key={category}>
-                            <a
-                                href="#"
-                                className="block bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-cyan-700 hover:text-white dark:hover:bg-cyan-00 dark:hover:text-white transition"
+                            <Link
+                                href={`/posts/category/${encodeURIComponent(category)}`}
+                                className="block bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-cyan-700 hover:text-white dark:hover:bg-cyan-600 dark:hover:text-white transition"
                             >
-                                {category}
-                            </a>
+                                {categoryLabels[category]}
+                            </Link>
                         </li>
                     ))}
                 </ul>
