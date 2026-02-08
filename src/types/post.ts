@@ -4,7 +4,7 @@ export type Post = {
     id: string;
     title: string;
     date: string;
-    content?: string;
+    content: string;
     isFeatured?: boolean;
     imageSrc?: string;
     imageAlt?: string;
@@ -13,4 +13,5 @@ export type Post = {
     subtitle?: string;
     category?: Category;
     tags: string[];
+    views?: number;
 };

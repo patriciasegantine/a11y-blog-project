@@ -2,16 +2,6 @@ import 'server-only';
 import {Post} from "@/types/post";
 import {Category} from "@/types/category";
 
-/**
- * ✅ Server-only database
- * Este módulo só pode ser importado em Server Components ou Route Handlers
- *
- * Benefícios:
- * - Zero bytes no bundle do cliente
- * - Acesso direto aos dados sem overhead de rede
- * - Type-safe queries
- */
-
 const posts: Post[] = [
     {
         id: "7c9c4c9a-3c2e-4e6a-9c92-1e8c2a9a1f01",
@@ -25,6 +15,7 @@ const posts: Post[] = [
         isFeatured: true,
         category: Category.IDENTITY_TIME,
         tags: ["comparison", "time", "self-knowledge", "anxiety", "routine"],
+        views: 3420,
         content:
             "When it feels like everyone else is 'ahead', you are almost always comparing other people's highlights with your behind-the-scenes reality. You see promotions, relationships, trips, and achievements — but not the support they had, the failed attempts, the networks, the mental health struggles, the luck, or the timing. Comparison strips away context. And when context disappears, the conclusion often becomes self-blame: 'I'm behind.' A fairer way to look at this is to ask: what am I not seeing? What assumptions am I making about other people's lives? What if my pace is being shaped by real factors — limits, resources, priorities, survival? You don't need to rush to prove your worth. You need clarity to choose the next step that actually fits your life right now. That isn't giving up. It's maturity.",
     },
@@ -40,6 +31,7 @@ const posts: Post[] = [
         imageSource: "unsplash.com",
         category: Category.IDENTITY_TIME,
         tags: ["identity", "transition", "purpose", "change", "self-compassion"],
+        views: 2890,
         content:
             "There is a quiet grief that appears when you realise you didn't become the person you once imagined. This isn't just about missed goals — it's about identity. A past version of you had certainties, timelines, and a strong sense of 'should'. When that collapses, it can feel like a lack of discipline, when in reality it was a lack of predictability. People change. Priorities change. Bodies change. Contexts change. Starting again doesn't have to mean a dramatic rupture; it can be a series of honest adjustments. Instead of asking 'Who should I be?', try asking 'Who am I becoming through the choices I'm making now?'. Identity isn't a finished statue — it's a process. And processes are far slower than the internet would have you believe.",
     },
@@ -54,6 +46,7 @@ const posts: Post[] = [
             "A calendar and handwritten notes representing deadline pressure and anxiety",
         category: Category.IDENTITY_TIME,
         tags: ["anxiety", "self-esteem", "pressure", "comparison", "boundaries"],
+        views: 2145,
         content:
             "'I'm behind' often sounds like a diagnosis — but it's actually a feeling. It shows up when you believe there is a single 'correct' pace for life and that you've failed to keep up. That pace, however, usually comes from inherited expectations: family, the job market, social media, friends, or an idealised version of yourself. To ground yourself, replace the question 'Am I behind?' with 'Behind compared to what, exactly?'. Behind for whom? With which resources? Under what conditions? Facts tend to have clear criteria; emotions are heavy, vague, and all-encompassing. Criteria help. Do you want financial stability? Health? Time? Relationships? When you define what genuinely matters to you, the sense of being 'behind' loses its grip — because you stop running towards goals that were never really yours.",
     },
@@ -68,6 +61,7 @@ const posts: Post[] = [
             "An exhausted person in a work environment, symbolising burnout",
         category: Category.WORK_MONEY_MEANING,
         tags: ["work", "burnout", "boundaries", "mental-health", "stability"],
+        views: 3210,
         content:
             "Many people accept almost any condition because 'at least it's a job'. And yes — bills require realism. But treating suffering as the unavoidable cost of stability creates a dangerous cycle. Sleep is traded for output, leisure for urgency, the body for productivity. Boundaries work best when they are specific and repeatable: defined working hours, realistic capacity, clear priorities, documented requests, and written agreements. It also helps to name what drains you — endless meetings, artificial urgency, ever-expanding scope. You may not be able to change everything at once, but you can stop blaming yourself for failing to meet infinite demands. Healthy stability isn't perfection; it's sustainability.",
     },
@@ -82,6 +76,7 @@ const posts: Post[] = [
             "An office at night with lights on, suggesting exhaustion and routine",
         category: Category.WORK_MONEY_MEANING,
         tags: ["work", "meaning", "routine", "energy", "balance"],
+        views: 1876,
         content:
             "Not everyone can quit everything and 'follow their dream'. And not everyone needs to. Sometimes the shift is quieter: reclaiming agency. Meaning isn't always a grand purpose — it's the feeling that your time belongs to you. This can look like renegotiating deliverables, releasing guilt when you say no, or creating small zones of autonomy: an hour without screens, a realistic hobby, healthcare, a course that restores curiosity. It also means separating your worth from your performance. A job can pay the bills without defining who you are. When you stop demanding passion from work as a moral obligation, you make room to build meaning elsewhere — without burning yourself down.",
     },
@@ -96,6 +91,7 @@ const posts: Post[] = [
             "A planner, coffee, and everyday objects representing stability and realism",
         category: Category.WORK_MONEY_MEANING,
         tags: ["career", "stability", "money", "reality", "autonomy"],
+        views: 2567,
         content:
             "There is cultural pressure to turn work into passion. If you don't have a 'dream job', it can feel like a personal failure. But wanting stability isn't a lack of vision — it's vision grounded in reality. For many people, stability means leaving survival mode: paying bills, having predictability, supporting family, taking care of health. The question doesn't have to be 'What is my professional purpose?'. It can be 'What level of security do I want to build, and why?'. From there, choices become lighter: a steadier job, savings, transferable skills, gradual transitions. A career's value isn't measured by glamour, but by what it allows you to sustain.",
     },
@@ -110,6 +106,7 @@ const posts: Post[] = [
             "Restless hands and notes, symbolising hidden anxiety",
         category: Category.MENTAL_HEALTH,
         tags: ["anxiety", "productivity", "control", "mental-health", "self-care"],
+        views: 2934,
         content:
             "'High-functioning' anxiety is deceptive because it produces results. You deliver, organise, anticipate problems, avoid mistakes. From the outside it looks like competence; on the inside it's constant tension. The body stays on alert, the mind never rests, and small errors feel like threats. Many people only notice when the cost shows up: insomnia, irritability, pain, exhaustion, panic. Naming it isn't about labels — it's about listening. A common sign is when rest triggers guilt and silence feels unbearable. Practical steps start small: reduce multitasking, leave margins in your schedule, name catastrophic thoughts, ask for help, and treat self-care as maintenance, not a reward. You don't need to break down to deserve support.",
     },
@@ -124,6 +121,7 @@ const posts: Post[] = [
             "A person resting, representing fatigue and recovery",
         category: Category.MENTAL_HEALTH,
         tags: ["exhaustion", "burnout", "guilt", "routine", "recovery"],
+        views: 3105,
         content:
             "'I'm lazy' is often a simple explanation for a complex problem: depleted energy. Exhaustion isn't a character flaw — it's a nervous system with no reserves left. Burnout can look like procrastination, apathy, irritability, or avoidance. Discipline doesn't appear out of nowhere; it depends on rest, nutrition, support, time, and realistic expectations. A helpful start is shrinking the goal. Instead of 'change my life', try 'take one step that doesn't harm me'. Another clue: laziness usually comes with enjoyment; exhaustion comes with suffering. If you're hating yourself for not performing, that isn't motivation — it's internal abuse. Recovery requires compassion and, often, external changes: workload, environment, boundaries, and professional help.",
     },
@@ -138,6 +136,7 @@ const posts: Post[] = [
             "Two people in conversation, suggesting therapy and attentive listening",
         category: Category.MENTAL_HEALTH,
         tags: ["therapy", "self-knowledge", "emotion", "mental-health", "boundaries"],
+        views: 1654,
         content:
             "Many people start therapy hoping to become someone else: more confident, more resolved, free of anxiety. What often changes instead is something quieter but deeper — the ability to listen. To the body, to patterns, to repeated stories, to what you tolerate out of fear and what you avoid out of shame. Therapy helps distinguish feelings from facts and interrupt automatic choices. Life doesn't necessarily become easier, but it becomes clearer. And clarity changes everything: you notice the cost of your habits, recognise triggers, name needs, learn how to ask — and how to refuse. 'It didn't fix me' may be the point. You were never broken. You just needed better tools to understand yourself.",
     },
@@ -152,6 +151,7 @@ const posts: Post[] = [
             "A path through a forest, symbolising gradual growth",
         category: Category.SLOW_GROWTH_REAL_LIFE,
         tags: ["growth", "uncertainty", "maturity", "anxiety", "real-life"],
+        views: 2341,
         content:
             "Confidence is helpful, but it isn't a prerequisite for action. Often, what's missing isn't self-belief — it's tolerance. Tolerance for the discomfort of trying without guarantees, speaking without control, changing your mind, making imperfect choices. Growing up means trading the pursuit of certainty for the ability to navigate 'maybe'. That includes accepting loss, disapproval, and an unrevealed future. The good news is that tolerance can be trained: through small steps, repetition, self-compassion, and boundaries. You don't need to feel ready to begin — you need to withstand the discomfort of beginning.",
     },
@@ -166,6 +166,7 @@ const posts: Post[] = [
             "A stop sign, symbolising boundaries",
         category: Category.SLOW_GROWTH_REAL_LIFE,
         tags: ["boundaries", "assertiveness", "saying-no", "relationships", "autonomy"],
+        views: 1923,
         content:
             "Many people struggle to say no not because they lack opinions, but because they fear the impact: disappointment, rejection, loss of affection. So 'no' becomes a request for permission, followed by long justifications. The problem is that over-explaining doesn't always create understanding — it often invites negotiation and guilt. A healthy no can be brief and kind: 'I won't be able to', 'Not today', 'I'd rather not'. You don't owe a thesis on your limits. The discomfort is real, but temporary. And each time you respect yourself, you teach others how to treat you. People who only like you without boundaries don't like you — they like access.",
     },
@@ -180,14 +181,14 @@ const posts: Post[] = [
             "A road at sunset, symbolising reflection and learning",
         category: Category.SLOW_GROWTH_REAL_LIFE,
         tags: ["retrospect", "learning", "self-compassion", "growth", "memory"],
+        views: 1432,
         content:
             "Some lessons only become obvious once you've lived through the chapter. That isn't a lack of intelligence — it's a lack of experience. The present mind wants to rewrite the past using today's knowledge, and shame appears: 'How did I not see this?'. But your past self didn't have the same resources, awareness, therapy, emotional maturity, or support. They were doing the best they could with what they had. Looking back honestly doesn't have to be a sentence; it can be an integration. You can acknowledge mistakes without reducing yourself to them. And you can be grateful for survival — sometimes that 'bad' decision was the only one available. Retrospection isn't for punishment. It's for release.",
     },
 ];
 
 /**
- * ✅ Database operations (server-only)
- * Type-safe queries que rodam no servidor
+ * Database operations (server-only)
  */
 export const db = {
     getAllPosts: () => posts,
@@ -197,4 +198,8 @@ export const db = {
     getTags: () => [...new Set(posts.flatMap(post => post.tags))].sort(),
     getFeaturedPost: () => posts.find(post => post.isFeatured),
     getRecentPosts: (limit: number = 5) => posts.slice(0, limit),
+    getMostReadPosts: (limit: number = 5) => posts
+        .filter(post => !post.isFeatured)
+        .sort((a, b) => (b.views || 0) - (a.views || 0))
+        .slice(0, limit),
 };

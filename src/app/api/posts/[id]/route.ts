@@ -1,5 +1,10 @@
 import {NextResponse} from "next/server";
-import {db} from "@/app/data/postsDatabase";
+import {db} from "@/lib/data/postsDatabase";
+
+/**
+ * API Route maintained for future client-side features
+ * Note: Post page now uses Server Component and accesses db directly
+ */
 
 interface RouteContext {
     params: Promise<{

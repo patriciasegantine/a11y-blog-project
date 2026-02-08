@@ -1,5 +1,12 @@
 import {NextResponse} from "next/server";
-import {db} from "@/app/data/postsDatabase";
+import {db} from "@/lib/data/postsDatabase";
+
+/**
+ * API Route maintained for future client-side features
+ * (e.g., dynamic search, filters, pagination)
+ */
+
+export const revalidate = 60;
 
 export async function GET() {
     try {
@@ -7,11 +14,18 @@ export async function GET() {
             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
             .map(({content, ...post}) => post);
 
-        return NextResponse.json({
-            success: true,
-            data: posts,
-            total: posts.length,
-        });
+        return NextResponse.json(
+            {
+                success: true,
+                data: posts,
+                total: posts.length,
+            },
+            {
+                headers: {
+                    "Cache-Control": "public, max-age=60, s-maxage=60, stale-while-revalidate=120",
+                },
+            }
+        );
     } catch (err) {
         return NextResponse.json(
             {
