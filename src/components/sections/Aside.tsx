@@ -1,14 +1,11 @@
-"use client";
-
 import CategoryList from "./CategoryList";
-import RecentPosts from "./RecentPosts";
-import {usePosts} from "@/contexts/PostsContext";
+import PostsList from "./PostsList";
 import {useCategories} from "@/hooks/useCategories";
+import {db} from "@/lib/data/postsDatabase";
 
 export default function Aside() {
-    const {getRecentPosts, loading} = usePosts();
     const {categories} = useCategories();
-    const recentPosts = getRecentPosts(3);
+    const mostReadPosts = db.getMostReadPosts();
 
     return (
         <aside
@@ -17,10 +14,14 @@ export default function Aside() {
 
             <hr className="border-zinc-300 dark:border-zinc-600"/>
 
-            {loading ? (
-                <div className="text-sm text-zinc-500 dark:text-zinc-400">Loading posts...</div>
+            {mostReadPosts.length > 0 ? (
+                <PostsList title="Most Read" posts={mostReadPosts} ariaLabelledby="aside-most-read-posts"/>
             ) : (
-                <RecentPosts posts={recentPosts}/>
+                <div className="py-8">
+                    <p className="text-center text-gray-600 dark:text-gray-400">
+                        No posts found. Please check back later.
+                    </p>
+                </div>
             )}
         </aside>
     );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {Category, categoryLabels} from "@/types/category";
+import {NavigationPath} from "@/types/navigation";
 
 type CategoryListProps = {
     title?: string;
@@ -20,7 +21,7 @@ export default function CategoryList({title = "Categories", categories}: Categor
                         <li key={category}>
                             {/*todo: add category page*/}
                             <Link
-                                href={`/`}
+                                href={NavigationPath.ARTICLES}
                                 className="block bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-cyan-700 hover:text-white dark:hover:bg-cyan-600 dark:hover:text-white transition"
                             >
                                 {categoryLabels[category]}
