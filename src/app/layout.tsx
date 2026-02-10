@@ -2,10 +2,10 @@ import React from "react";
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
-import Header from "@/components/sections/Header";
+import Header from "@/components/layout/Header";
 import AxeAccessibilityInit from "@/components/AxeAccessibilityInit";
-import Aside from "@/components/sections/Aside";
-import Footer from "@/components/sections/Footer";
+import Aside from "@/components/layout/Aside";
+import Footer from "@/components/layout/Footer";
 import {siteMetadata} from "@/lib/metadata/siteMetadata";
 
 const inter = Inter({

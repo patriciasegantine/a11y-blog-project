@@ -1,5 +1,5 @@
-import CategoryList from "./CategoryList";
-import PostsList from "./PostsList";
+import CategoryList from "../sections/CategoryList";
+import PostsList from "../sections/PostsList";
 import {useCategories} from "@/hooks/useCategories";
 import {db} from "@/lib/data/postsDatabase";
 
