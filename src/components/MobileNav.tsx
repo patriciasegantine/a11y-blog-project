@@ -46,9 +46,9 @@ export default function MobileNav() {
             >
                 <span className="sr-only">{isOpen ? "Close menu" : "Open menu"}</span>
                 {isOpen ? (
-                    <CloseIcon className="w-6 h-6 text-zinc-900 dark:text-white"/>
+                    <CloseIcon className="h-5 text-zinc-900 dark:text-white"/>
                 ) : (
-                    <MenuIcon className="w-6 h-6 text-zinc-900 dark:text-white"/>
+                    <MenuIcon className="h-5 text-zinc-900 dark:text-white"/>
                 )}
             </button>
 

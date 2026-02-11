@@ -35,7 +35,7 @@ export async function GET(_request: Request, context: RouteContext) {
         return NextResponse.json(
             {
                 success: false,
-                error: "Failed to fetch post",
+                error: err || `Failed to fetch post data`,
             },
             {status: 500}
         );

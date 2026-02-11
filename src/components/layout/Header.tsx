@@ -16,10 +16,18 @@ export default function Header() {
                         alt="The No-Manual Life"
                         width={80}
                         height={60}
-                        className="h-8 w-auto rounded-lg hidden dark:block"
+                        className="h-6 md:h-8 w-auto rounded-lg hidden dark:block"
                         aria-hidden="true"
                     />
-                    <h1 className="text-lg font-bold text-zinc-900 dark:text-white">
+                    <Image
+                        src="/assets/images/logo.svg"
+                        alt="The No-Manual Life"
+                        width={80}
+                        height={60}
+                        className="h-6 md:h-8 w-auto rounded-lg dark:hidden"
+                        aria-hidden="true"
+                    />
+                    <h1 className="text-md md:text-xl font-bold text-zinc-900 dark:text-white">
                         The No-Manual Life
                     </h1>
                 </div>

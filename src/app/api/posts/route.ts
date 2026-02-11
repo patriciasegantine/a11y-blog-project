@@ -12,7 +12,7 @@ export async function GET() {
     try {
         const posts = db.getAllPosts()
             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-            .map(({content, ...post}) => post);
+            .map(({...post}) => post);
 
         return NextResponse.json(
             {
@@ -30,7 +30,7 @@ export async function GET() {
         return NextResponse.json(
             {
                 success: false,
-                error: "Failed to fetch posts",
+                error: err || `Failed to fetch posts`,
             },
             {status: 500}
         );
