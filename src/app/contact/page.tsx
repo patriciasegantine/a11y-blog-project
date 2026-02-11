@@ -1,9 +1,11 @@
 import React from 'react';
-import UnderConstruction from "@/components/ui/UnderConstruction";
+import FAQ from "@/components/sections/FAQ";
 
 const ContactPage = () => {
     return (
-        <UnderConstruction/>
+        <div className="w-full">
+            <FAQ/>
+        </div>
     );
 };
 
