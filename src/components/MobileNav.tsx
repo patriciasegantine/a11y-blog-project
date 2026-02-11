@@ -41,10 +41,10 @@ export default function MobileNav() {
                 onClick={() => setIsOpen(!isOpen)}
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
-                aria-label={isOpen ? "Close menu" : "Open menu"}
+                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
                 className="flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition"
             >
-                <span className="sr-only">{isOpen ? "Close menu" : "Open menu"}</span>
+                <span className="sr-only">{isOpen ? "Close navigation menu" : "Open navigation menu"}</span>
                 {isOpen ? (
                     <CloseIcon className="h-5 text-zinc-900 dark:text-white"/>
                 ) : (
