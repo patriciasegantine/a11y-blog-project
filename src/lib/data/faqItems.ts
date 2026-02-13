@@ -31,7 +31,7 @@ export const faqItems: FAQItem[] = [
     },
     {
         id: "suggest-topic",
-        question: "Can I suggest a topic for a post?",
+        question: "Can I suggest a topic for a posts?",
         answer:
             "Absolutely! We love hearing from our community. If there's a challenge you're facing or a topic you'd like us to cover, please send your suggestions via our contact form. Your feedback helps us make our content more relevant and useful.",
     },

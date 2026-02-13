@@ -6,7 +6,7 @@ export function useNavigation() {
 
     const navLinks: NavLink[] = [
         {href: NavigationPath.HOME, label: NavigationLabel.HOME},
-        {href: NavigationPath.ARTICLES, label: NavigationLabel.ARTICLES},
+        {href: NavigationPath.POSTS, label: NavigationLabel.POSTS},
         {href: NavigationPath.ABOUT, label: NavigationLabel.ABOUT},
         {href: NavigationPath.CONTACT, label: NavigationLabel.CONTACT},
     ];

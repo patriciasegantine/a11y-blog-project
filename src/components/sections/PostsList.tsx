@@ -22,7 +22,7 @@ export default function PostsList({title = "Posts", posts, ariaLabelledby}: Post
                 {posts.map((post, index) => (
                     <li key={post?.id}>
                         <Link
-                            href={`/post/${post.id}`}
+                            href={`/posts/${post.id}`}
                             className="block group"
                         >
                             <strong

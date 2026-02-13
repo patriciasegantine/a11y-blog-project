@@ -1,13 +1,13 @@
 export enum NavigationPath {
     HOME = "/",
-    ARTICLES = "/articles",
+    POSTS = "/posts",
     ABOUT = "/about",
     CONTACT = "/contact",
 }
 
 export enum NavigationLabel {
     HOME = "Home",
-    ARTICLES = "Articles",
+    POSTS = "Posts",
     ABOUT = "About",
     CONTACT = "Contact",
 }

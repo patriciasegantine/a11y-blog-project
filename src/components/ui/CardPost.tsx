@@ -1,6 +1,7 @@
 import LinkButton from "./LinkButton";
 import {Post} from "@/types/post";
 import {formatPostDate} from "@/utils/formatPostDate";
+import {NavigationPath} from "@/types/navigation";
 
 type CardPostProps = {
     post: Post;
@@ -22,7 +23,7 @@ export default function CardPost({post}: CardPostProps) {
                 <p className="mt-3 text-zinc-700 dark:text-zinc-300">{post.subtitle}</p>
                 <div className="mt-4">
                     <LinkButton
-                        href={`/post/${post.id}`}
+                        href={`${NavigationPath.POSTS}/${post.id}`}
                         ariaLabel={`Read more about: ${post.title}`}
                         variant="cyan"
                     >

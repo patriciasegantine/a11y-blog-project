@@ -3,6 +3,7 @@ import {Post} from "@/types/post";
 import LinkButton from "@/components/ui/LinkButton";
 import {formatPostDate} from "@/utils/formatPostDate";
 import ImageCreditOverlay from "@/components/ui/ImageCreditOverlay";
+import {NavigationPath} from "@/types/navigation";
 
 export default function FeaturedPost({post}: { post: Post }) {
     if (!post.isFeatured) return null;
@@ -43,7 +44,8 @@ export default function FeaturedPost({post}: { post: Post }) {
                     <p className="text-zinc-600 dark:text-zinc-300 mb-6 leading-relaxed">{post.subtitle}</p>
                 )}
                 <div className="flex">
-                    <LinkButton href={`/post/${post.id}`} ariaLabel={`Learn more about: ${post.title}`} variant="cyan">
+                    <LinkButton href={`${NavigationPath.POSTS}/${post.id}`}
+                                ariaLabel={`Learn more about: ${post.title}`} variant="cyan">
                         Read more
                     </LinkButton>
                 </div>

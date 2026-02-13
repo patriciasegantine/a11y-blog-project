@@ -1,10 +1,10 @@
 import React from 'react';
 import UnderConstruction from "@/components/ui/UnderConstruction";
 
-const ArticlePage = () => {
+const PostsPage = () => {
     return (
         <UnderConstruction/>
     );
 };
 
-export default ArticlePage;
+export default PostsPage;

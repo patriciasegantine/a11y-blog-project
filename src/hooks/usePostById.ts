@@ -28,7 +28,7 @@ export function usePostById(): UsePostByIdState {
             const response = await fetch(`/api/posts/${id}`);
 
             if (!response.ok) {
-                const message = response.status === 404 ? "Post not found" : "Failed to fetch post";
+                const message = response.status === 404 ? "Post not found" : "Failed to fetch posts";
                 throw new Error(message);
             }
 
