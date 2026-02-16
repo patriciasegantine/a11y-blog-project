@@ -17,15 +17,15 @@ export default function LinkButton({
                                        ...props
                                    }: LinkButtonProps) {
     const base =
-        "inline-flex items-center gap-2 px-5 py-2 rounded-full font-medium transition-all duration-200 ease-in-out shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+        "inline-flex items-center gap-2 px-5 py-2 rounded-full font-medium transition-all duration-200 ease-in-out shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-ring";
 
     const variants: Record<Variant, string> = {
         dark:
-            "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-100 focus-visible:ring-zinc-900 dark:focus-visible:ring-white",
+            "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-100",
         cyan:
-            "bg-cyan-900 text-white hover:bg-cyan-600 focus-visible:ring-cyan-500",
+            "bg-cyan-900 text-white hover:bg-cyan-600",
         green:
-            "bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-500",
+            "bg-green-600 text-white hover:bg-green-700",
     };
 
     const variantClasses = variants[variant] ?? variants.dark;

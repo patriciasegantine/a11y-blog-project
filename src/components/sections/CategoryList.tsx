@@ -22,7 +22,7 @@ export default function CategoryList({title = "Categories", categories}: Categor
                             {/*todo: add category page*/}
                             <Link
                                 href={NavigationPath.POSTS}
-                                className="block bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-cyan-700 hover:text-white dark:hover:bg-cyan-600 dark:hover:text-white transition"
+                                className="block bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-cyan-700 hover:text-white focus-ring dark:hover:bg-cyan-600 dark:hover:text-white transition"
                             >
                                 {categoryLabels[category]}
                             </Link>

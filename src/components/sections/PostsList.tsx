@@ -23,13 +23,13 @@ export default function PostsList({title = "Posts", posts, ariaLabelledby}: Post
                     <li key={post?.id}>
                         <Link
                             href={`/posts/${post.id}`}
-                            className="block group"
+                            className="block group focus-ring"
                         >
                             <strong
                                 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 group-hover:text-cyan-600 dark:group-hover:text-cyan-600 transition line-clamp-2">
                                 {index + 1}. {post.title}
                             </strong>
-                            <time className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 block">
+                            <time className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 block ">
                                 {formatPostDate(post)}
                             </time>
                         </Link>
