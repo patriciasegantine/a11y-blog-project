@@ -1,7 +1,8 @@
 import Image from "next/image";
-import Nav from "@/components/Nav";
-import MobileNav from "@/components/MobileNav";
+import Nav from "@/components/nav/Nav";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import MobileNav from "@/components/nav/MobileNav";
+import Link from "next/link";
 
 export default function Header() {
     return (
@@ -10,7 +11,7 @@ export default function Header() {
             <div className="container mx-auto flex justify-between items-center gap-3 px-4 py-2">
                 <MobileNav/>
 
-                <a href="/" className="flex items-center gap-3 hover:opacity-80 transition">
+                <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
                     <Image
                         src="/assets/images/logo-dark.svg"
                         alt="The No-Manual Life"
@@ -30,7 +31,7 @@ export default function Header() {
                     <h1 className="text-md md:text-xl font-bold text-zinc-900 dark:text-white">
                         The No-Manual Life
                     </h1>
-                </a>
+                </Link>
 
                 <div className="flex items-center gap-3">
                     <Nav/>

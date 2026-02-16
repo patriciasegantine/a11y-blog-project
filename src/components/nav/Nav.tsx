@@ -1,6 +1,7 @@
 "use client";
 
 import {useNavigation} from "@/hooks/useNavigation";
+import Link from "next/link";
 
 export default function Nav() {
     const {navLinks, isActive} = useNavigation();
@@ -11,7 +12,7 @@ export default function Nav() {
             aria-label="Main navigation">
             {
                 navLinks.map((link) => (
-                    <a
+                    <Link
                         key={link.label}
                         href={link.href}
                         aria-current={isActive(link.href) ? "page" : undefined}
@@ -22,7 +23,7 @@ export default function Nav() {
                         }`}
                     >
                         {link.label}
-                    </a>
+                    </Link>
                 ))}
         </nav>
     );
