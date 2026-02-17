@@ -33,7 +33,7 @@ export default function Button({
         dark:
             "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-100",
         cyan:
-            "bg-cyan-600 text-white hover:bg-cyan-700 active:bg-cyan-800",
+          "bg-cyan-900 text-white hover:bg-cyan-600",
         green:
             "bg-green-600 text-white hover:bg-green-700 active:bg-green-800",
         ghost:

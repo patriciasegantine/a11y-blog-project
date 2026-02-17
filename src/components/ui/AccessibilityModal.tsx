@@ -7,6 +7,8 @@ import IntroductionSection from './accessibility/IntroductionSection';
 import AccessibilityFeaturesSection from './accessibility/AccessibilityFeaturesSection';
 import KeyboardNavigationSection from './accessibility/KeyboardNavigationSection';
 import Divider from './Divider';
+import PhilosophySection from "@/components/ui/accessibility/PhilosophySection";
+import CloseButtonSection from "@/components/ui/accessibility/CloseButtonSection";
 
 interface AccessibilityModalProps {
   open: boolean;
@@ -42,6 +44,9 @@ export default function AccessibilityModal({open, onOpenChange}: AccessibilityMo
             <AccessibilityFeaturesSection/>
             <Divider/>
             <KeyboardNavigationSection/>
+            <Divider/>
+            <PhilosophySection/>
+            <CloseButtonSection onClose={() => onOpenChange}/>
           </div>
         </Dialog.Content>
       </Dialog.Portal>
