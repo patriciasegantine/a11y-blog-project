@@ -47,7 +47,7 @@ export default function Header() {
                         <button
                             type="button"
                             aria-label="Accessibility information"
-                            className="p-2 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 focus-ring transition-colors"
+                            className="p-2 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 focus-ring transition-colors hover:cursor-pointer"
                             onClick={() => setIsModalOpen(true)}
                         >
                             <FontAwesomeIcon icon={faInfoCircle} className="w-5 h-5" />
@@ -58,9 +58,9 @@ export default function Header() {
                 </div>
             </header>
 
-            <AccessibilityModal 
-                open={isModalOpen} 
-                onOpenChange={setIsModalOpen} 
+            <AccessibilityModal
+                open={isModalOpen}
+                onOpenChange={setIsModalOpen}
             />
         </>
     );
