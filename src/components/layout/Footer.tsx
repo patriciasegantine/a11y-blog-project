@@ -2,7 +2,6 @@
 
 import React from "react";
 import GitHubIcon from "@/components/icon/github-icon";
-import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -19,15 +18,15 @@ export default function Footer() {
                             This blog is an accessibility showcase.
                         </p>
 
-                        <Link
+                        <a
                             href="https://github.com/patriciasegantine/a11y-blog-project"
-                            className="text-zinc-700 dark:text-zinc-300 hover:text-cyan-900 dark:hover:text-cyan-600 transition flex items-center gap-2"
+                            className="text-zinc-700 dark:text-zinc-300 hover:text-cyan-900 dark:hover:text-cyan-600 transition flex items-center gap-2 rounded focus-ring"
                             aria-label="Go to GitHub"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <GitHubIcon/>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
