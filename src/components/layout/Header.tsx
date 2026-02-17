@@ -1,12 +1,17 @@
 'use client';
 
+import { useState } from "react";
 import Image from "next/image";
 import Nav from "@/components/nav/Nav";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import MobileNav from "@/components/nav/MobileNav";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import AccessibilityModal from "@/components/ui/AccessibilityModal";
 
 export default function Header() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <>
@@ -39,10 +44,24 @@ export default function Header() {
 
                     <div className="flex items-center gap-3">
                         <Nav/>
+                        <button
+                            type="button"
+                            aria-label="Accessibility information"
+                            className="p-2 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 focus-ring transition-colors"
+                            onClick={() => setIsModalOpen(true)}
+                        >
+                            <FontAwesomeIcon icon={faInfoCircle} className="w-5 h-5" />
+                            <span className="sr-only">Open accessibility information</span>
+                        </button>
                         <ThemeToggle/>
                     </div>
                 </div>
             </header>
+
+            <AccessibilityModal 
+                open={isModalOpen} 
+                onOpenChange={setIsModalOpen} 
+            />
         </>
     );
 }
