@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUniversalAccess, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
 
 export default function AccessibilityFeaturesSection() {
   const features = [
@@ -20,7 +20,7 @@ export default function AccessibilityFeaturesSection() {
       description: "Clear and navigable HTML structure"
     }
   ];
-
+  
   return (
     <section className="space-y-4">
       <h3 className="text-lg font-semibold flex items-center gap-2 text-zinc-900 dark:text-white">
@@ -31,8 +31,8 @@ export default function AccessibilityFeaturesSection() {
         />
         <span>Accessibility Features</span>
       </h3>
-
-      <ul className="space-y-3 list-none pl-0">
+      
+      <ul className="space-y-2 list-none pl-0">
         {features.map((feature, index) => (
           <li key={index} className="flex gap-3 text-zinc-700 dark:text-zinc-300">
             <FontAwesomeIcon

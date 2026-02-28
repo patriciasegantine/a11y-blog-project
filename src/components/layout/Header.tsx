@@ -1,67 +1,47 @@
 'use client';
 
-import { useState } from "react";
 import Image from "next/image";
 import Nav from "@/components/nav/Nav";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import MobileNav from "@/components/nav/MobileNav";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import AccessibilityModal from "@/components/ui/AccessibilityModal";
+import AccessibilityButton from "@/components/ui/AccessibilityButton";
 
 export default function Header() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    return (
-        <>
-            <header
-                className="w-full bg-zinc-50 dark:bg-zinc-800 border-b sticky top-0 z-50 border-zinc-200 dark:border-zinc-800">
-                <div className="container mx-auto flex justify-between items-center gap-3 px-4 py-2">
-                    <MobileNav/>
-
-                    <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition focus-ring">
-                        <Image
-                            src="/assets/images/logo-dark.svg"
-                            alt="The No-Manual Life"
-                            width={80}
-                            height={60}
-                            className="h-6 md:h-8 w-auto rounded-lg hidden dark:block"
-                            aria-hidden="true"
-                        />
-                        <Image
-                            src="/assets/images/logo.svg"
-                            alt="The No-Manual Life"
-                            width={80}
-                            height={60}
-                            className="h-6 md:h-8 w-auto rounded-lg dark:hidden"
-                            aria-hidden="true"
-                        />
-                        <h1 className="text-md md:text-xl font-bold text-zinc-900 dark:text-white">
-                            The No-Manual Life
-                        </h1>
-                    </Link>
-
-                    <div className="flex items-center gap-3">
-                        <Nav/>
-                        <button
-                            type="button"
-                            aria-label="Accessibility information"
-                            className="p-2 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 focus-ring transition-colors hover:cursor-pointer"
-                            onClick={() => setIsModalOpen(true)}
-                        >
-                            <FontAwesomeIcon icon={faInfoCircle} className="w-5 h-5" />
-                            <span className="sr-only">Open accessibility information</span>
-                        </button>
-                        <ThemeToggle/>
-                    </div>
-                </div>
-            </header>
-
-            <AccessibilityModal
-                open={isModalOpen}
-                onOpenChange={setIsModalOpen}
-            />
-        </>
-    );
+  
+  return (<header
+      className="w-full bg-zinc-50 dark:bg-zinc-800 border-b sticky top-0 z-50 border-zinc-200 dark:border-zinc-800">
+      <div className="container mx-auto flex justify-between items-center gap-3 px-4 py-2">
+        <MobileNav/>
+        
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition focus-ring">
+          <Image
+            src="/assets/images/logo-dark.svg"
+            alt="The No-Manual Life"
+            width={80}
+            height={60}
+            className="h-6 md:h-8 w-auto rounded-lg hidden dark:block"
+            aria-hidden="true"
+          />
+          <Image
+            src="/assets/images/logo.svg"
+            alt="The No-Manual Life"
+            width={80}
+            height={60}
+            className="h-6 md:h-8 w-auto rounded-lg dark:hidden"
+            aria-hidden="true"
+          />
+          <h1 className="text-md md:text-xl font-bold text-zinc-900 dark:text-white">
+            The No-Manual Life
+          </h1>
+        </Link>
+        
+        <div className="flex items-center gap-3">
+          <Nav/>
+          <AccessibilityButton/>
+          <ThemeToggle/>
+        </div>
+      </div>
+    </header>
+  );
 }
