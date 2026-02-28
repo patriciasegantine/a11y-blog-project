@@ -24,10 +24,7 @@ architecture.
 - [x] Accessible typography and spacing
 - [x] Responsive, mobile-first layout
 - [x] Lighthouse 100 (Accessibility)
-
-### In Progress
-
-- [ ] Dark mode contrast validation
+- [x] Accessibility testing with Axe
 
 ---
 
@@ -37,8 +34,9 @@ architecture.
 
 ### Planned / In Progress
 
-- [x] FAQ refinements (accordion behaviour and focus handling)
 - [ ] Accessibility introduction modal (project purpose and keyboard navigation)
+- [ ] Dark / light theme support with consistent contrast and focus behaviour
+- [x] FAQ refinements (accordion behaviour and focus handling)
 - [ ] Focus management and keyboard trapping for modal dialogs
 - [ ] Accessible contact form
 - [ ] Form validation with accessible error messaging
