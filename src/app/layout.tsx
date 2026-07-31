@@ -33,6 +33,12 @@ export default function RootLayout({
         </head>
 
         <body className={`${inter.className} antialiased`}>
+        <a
+            href="#main-content"
+            className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:left-5 focus-visible:top-5 focus-visible:z-100 focus-visible:rounded-md focus-visible:bg-(--accent) focus-visible:px-4 focus-visible:py-2 focus-visible:font-medium focus-visible:text-stone-950 focus-visible:outline-none"
+        >
+            Skip to content
+        </a>
         <Header/>
 
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
