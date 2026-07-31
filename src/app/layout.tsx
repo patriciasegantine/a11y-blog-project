@@ -4,7 +4,6 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import AxeAccessibilityInit from "@/components/AxeAccessibilityInit";
-import Aside from "@/components/layout/Aside";
 import Footer from "@/components/layout/Footer";
 import {siteMetadata} from "@/lib/metadata/siteMetadata";
 
@@ -23,16 +22,23 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={inter.variable}>
+        <html lang="en" className={inter.variable} suppressHydrationWarning>
+
+        <head>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `(function(){try{var saved=localStorage.getItem("theme");var dark=saved?saved==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",dark);document.documentElement.classList.toggle("light",!dark)}catch(e){}})();`,
+                }}
+            />
+        </head>
 
         <body className={`${inter.className} antialiased`}>
         <Header/>
 
-        <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_16rem] gap-8">
-            <main id="main-content" role="main">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
+            <main id="main-content">
                 {children}
             </main>
-            <Aside/>
         </div>
 
         <Footer/>
