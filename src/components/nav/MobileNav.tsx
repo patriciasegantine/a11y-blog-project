@@ -7,11 +7,7 @@ import CloseIcon from "@/components/icon/close-icon";
 
 export default function MobileNav() {
     const [isOpen, setIsOpen] = useState(false);
-    const {navLinks, isActive, pathname} = useNavigation();
-
-    useEffect(() => {
-        setIsOpen(false);
-    }, [pathname]);
+    const {navLinks, isActive} = useNavigation();
 
     useEffect(() => {
         if (isOpen) {
@@ -42,7 +38,7 @@ export default function MobileNav() {
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
                 aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-                className="flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition"
+                className="flex h-10 w-10 flex-col items-center justify-center rounded-md transition hover:bg-zinc-100 focus-ring dark:hover:bg-zinc-700"
             >
                 <span className="sr-only">{isOpen ? "Close navigation menu" : "Open navigation menu"}</span>
                 {isOpen ? (
@@ -62,7 +58,7 @@ export default function MobileNav() {
 
             <nav
                 id="mobile-menu"
-                className={`fixed top-[57px] left-0 bottom-0 w-64 bg-zinc-50 dark:bg-zinc-800 border-r border-zinc-200 dark:border-zinc-700 z-50 transform transition-transform duration-300 ease-in-out ${
+                className={`fixed bottom-0 left-0 top-[73px] z-50 w-64 transform border-r border-stone-300 bg-[#fbf8f1] transition-transform duration-300 ease-in-out dark:border-stone-700 dark:bg-[#1c1b19] ${
                     isOpen ? "translate-x-0" : "-translate-x-full"
                 }`}
                 aria-label="Mobile navigation"
@@ -72,10 +68,11 @@ export default function MobileNav() {
                         <a
                             key={link.label}
                             href={link.href}
+                            onClick={() => setIsOpen(false)}
                             aria-current={isActive(link.href) ? "page" : undefined}
                             className={`transition rounded-md px-4 py-3 font-medium text-left ${
                                 isActive(link.href)
-                                    ? "text-zinc-900 dark:text-white bg-zinc-200 dark:bg-cyan-700"
+                                    ? "bg-[var(--accent)] text-stone-950"
                                     : "text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-700"
                             }`}
                         >
