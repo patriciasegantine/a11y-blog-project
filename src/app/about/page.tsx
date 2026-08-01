@@ -43,7 +43,7 @@ const About = () => {
                     <p>
                         At some point, we were told we'd "figure it out." That careers would
                         make sense. That relationships would settle. That confidence would
-                        arrive quietly — and stay.
+                        arrive quietly, and stay.
                     </p>
 
                     <p className="font-semibold text-zinc-900 dark:text-white">That's not how it went.</p>
@@ -59,7 +59,7 @@ const About = () => {
 
                     <div className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
                         <p>
-                            This is a space for the in-between years — the ones where you're
+                            This is a space for the in-between years: the ones where you're
                             functional on the outside and quietly questioning everything on the
                             inside.
                         </p>
@@ -110,8 +110,8 @@ const About = () => {
                         <p>This isn't meant to be a single-voice space.</p>
 
                         <p>
-                            If you have something honest to share — a story, a lesson, a moment of
-                            confusion or quiet clarity — you're welcome to reach out. I'd be glad
+                            If you have something honest to share, a story, a lesson, a moment of
+                            confusion or quiet clarity, you're welcome to reach out. I'd be glad
                             to make room for your experience here.
                         </p>
                     </div>
@@ -122,7 +122,7 @@ const About = () => {
                         No instructions. No formulas.
                     </p>
                     <p className="text-xl font-bold text-zinc-900 dark:text-white">
-                        Figuring life out — one mistake at a time.
+                        Figuring life out, one mistake at a time.
                     </p>
                 </footer>
             </article>

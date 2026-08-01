@@ -6,7 +6,7 @@ export function buildPostMetadata(post?: Post | null): Metadata {
         return {title: "Post Not Found"};
     }
 
-    const description = post.subtitle || post.content.substring(0, 160);
+    const description = post.subtitle || post.introduction.substring(0, 160);
 
     return {
         title: post.title,
