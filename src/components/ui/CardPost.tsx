@@ -11,14 +11,14 @@ export default function CardPost({post}: { post: Post }) {
             <Link href={`/posts/${post.id}`} className="group grid gap-3 focus-ring md:grid-cols-[9rem_1fr] md:gap-6">
                 <p className="pt-1 text-xs leading-relaxed text-stone-500 dark:text-stone-400">
                     {post.category && (
-                        <span className="block text-[var(--accent)]">
+                        <span className="block text-(--accent)">
                             {categoryLabels[post.category]}
                         </span>
                     )}
                     <time>{formatPostDate(post)}</time>
                 </p>
                 <span>
-                    <h3 id={headingId} className="max-w-3xl font-serif text-lg font-normal leading-snug text-stone-900 transition group-hover:text-[var(--accent)] dark:text-stone-100 md:text-xl">
+                    <h3 id={headingId} className="max-w-3xl font-serif text-lg font-normal leading-snug text-stone-900 transition group-hover:text-(--accent) dark:text-stone-100 md:text-xl">
                         {post.title}
                     </h3>
                     {post.subtitle && (

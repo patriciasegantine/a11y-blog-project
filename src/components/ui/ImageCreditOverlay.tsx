@@ -7,7 +7,7 @@ export default function ImageCreditOverlay({author, source}: ImageCreditOverlayP
     if (!author) return null;
 
     return (
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+        <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-3">
             <p className="text-right text-xs text-white/70">
                 By {author}
                 {source && <> from {source}</>}

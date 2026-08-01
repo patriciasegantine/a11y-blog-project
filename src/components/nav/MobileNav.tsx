@@ -58,7 +58,7 @@ export default function MobileNav() {
 
             <nav
                 id="mobile-menu"
-                className={`fixed bottom-0 left-0 top-[73px] z-50 w-64 transform border-r border-stone-300 bg-background transition-transform duration-300 ease-in-out dark:border-stone-700 ${
+                className={`fixed bottom-0 left-0 top-18.25 z-50 w-64 transform border-r border-stone-300 bg-background transition-transform duration-300 ease-in-out dark:border-stone-700 ${
                     isOpen ? "translate-x-0" : "-translate-x-full"
                 }`}
                 aria-label="Mobile navigation"
