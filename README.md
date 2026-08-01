@@ -2,12 +2,12 @@
 
 ### Accessibility-First Frontend Engineering Project
 
-![Blog preview](./public/assets/images/blog.png)
+![Blog preview](./public/preview.png)
 ---
 
 ## 📌 Overview
 
-The No-Manual Life Blog is a modern frontend engineering project built with **accessibility as a primary architectural
+The No-Manual Life Blog is a modern frontend engineering project built with **accessibility as a primary architectural**
 constraint**.
 
 This is not just a blog application — it is a structured environment created to practise, refine, and document inclusive

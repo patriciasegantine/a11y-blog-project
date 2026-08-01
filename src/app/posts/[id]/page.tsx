@@ -55,9 +55,10 @@ export default async function PostPage({params}: PostPageProps) {
                     </div>
                 )}
 
-                {post.content && (
+                {post.introduction && (
                     <div className="mt-8 space-y-6 text-zinc-800 dark:text-zinc-200 leading-relaxed">
-                        <p>{post.content}</p>
+                        <p>{post.introduction}</p>
+                        {post.body.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
 
                         {post.category && (
                             <div className="mt-6">
