@@ -10,7 +10,7 @@ const posts: Post[] = [
         subtitle: "Behind every 'overnight success' there is invisible context. How to stop comparing timelines and reconnect with your own pace.",
         imageSrc: "https://images.unsplash.com/photo-1541397436527-c5d6df584ce1?q=80&w=2000",
         imageAlt: "A man standing on a train platform wearing a tan coat and black backpack, watching a blur of a green and blue train speed past. The word 'Edward' is visible on the train window.",
-        imageCredit: 'kwan fung',
+        imageCredit: "Kwan Fung",
         imageSource: "unsplash.com",
         isFeatured: true,
         category: Category.IDENTITY_TIME,

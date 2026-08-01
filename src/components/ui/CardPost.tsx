@@ -1,36 +1,33 @@
-import LinkButton from "./LinkButton";
+import Link from "next/link";
 import {Post} from "@/types/post";
 import {formatPostDate} from "@/utils/formatPostDate";
-import {NavigationPath} from "@/types/navigation";
+import {categoryLabels} from "@/types/category";
 
-type CardPostProps = {
-    post: Post;
-};
-
-export default function CardPost({post}: CardPostProps) {
+export default function CardPost({post}: { post: Post }) {
     const headingId = `post-${post.id}`;
 
     return (
-        <article
-            className="rounded-lg bg-white dark:bg-zinc-800 shadow border border-zinc-200 dark:border-zinc-700"
-            aria-labelledby={headingId}
-        >
-            <div className="p-6">
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">{formatPostDate(post)}</p>
-                <h3 id={headingId} className="mt-2 text-xl font-semibold text-zinc-900 dark:text-white">
-                    {post.title}
-                </h3>
-                <p className="mt-3 text-zinc-700 dark:text-zinc-300">{post.subtitle}</p>
-                <div className="mt-4">
-                    <LinkButton
-                        href={`${NavigationPath.POSTS}/${post.id}`}
-                        ariaLabel={`Read more about: ${post.title}`}
-                        variant="cyan"
-                    >
-                        Read more
-                    </LinkButton>
-                </div>
-            </div>
+        <article className="border-b border-stone-300 py-6 first:border-t dark:border-stone-700" aria-labelledby={headingId}>
+            <Link href={`/posts/${post.id}`} className="group grid gap-3 focus-ring md:grid-cols-[9rem_1fr] md:gap-6">
+                <p className="pt-1 text-xs leading-relaxed text-stone-500 dark:text-stone-400">
+                    {post.category && (
+                        <span className="block text-[var(--accent)]">
+                            {categoryLabels[post.category]}
+                        </span>
+                    )}
+                    <time>{formatPostDate(post)}</time>
+                </p>
+                <span>
+                    <h3 id={headingId} className="max-w-3xl font-serif text-lg font-normal leading-snug text-stone-900 transition group-hover:text-[var(--accent)] dark:text-stone-100 md:text-xl">
+                        {post.title}
+                    </h3>
+                    {post.subtitle && (
+                        <span className="mt-2 block max-w-2xl text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+                            {post.subtitle}
+                        </span>
+                    )}
+                </span>
+            </Link>
         </article>
     );
 }

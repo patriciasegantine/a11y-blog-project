@@ -8,7 +8,7 @@ export default function Nav() {
 
     return (
         <nav
-            className="hidden md:flex gap-8"
+            className="hidden items-center gap-6 md:flex"
             aria-label="Main navigation">
             {
                 navLinks.map((link) => (
@@ -16,10 +16,10 @@ export default function Nav() {
                         key={link.label}
                         href={link.href}
                         aria-current={isActive(link.href) ? "page" : undefined}
-                        className={`transition rounded-md px-3 py-2 font-medium focus-ring ${
+                        className={`border-b-2 px-1 py-2 text-sm font-medium transition focus-ring ${
                             isActive(link.href)
-                                ? "text-zinc-900 dark:text-white bg-zinc-200 dark:bg-cyan-700"
-                                : "text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                                ? "border-(--accent) text-foreground"
+                                : "border-transparent text-(--muted) hover:text-(--accent)"
                         }`}
                     >
                         {link.label}

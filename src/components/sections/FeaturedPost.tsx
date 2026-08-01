@@ -1,54 +1,49 @@
 import Image from "next/image";
+import Link from "next/link";
 import {Post} from "@/types/post";
-import LinkButton from "@/components/ui/LinkButton";
 import {formatPostDate} from "@/utils/formatPostDate";
 import ImageCreditOverlay from "@/components/ui/ImageCreditOverlay";
-import {NavigationPath} from "@/types/navigation";
+import {categoryLabels} from "@/types/category";
 
 export default function FeaturedPost({post}: { post: Post }) {
     if (!post.isFeatured) return null;
 
     return (
-        <article
-            className="group overflow-hidden rounded-2xl bg-white dark:bg-zinc-800 shadow-md hover:shadow-xl transition-shadow duration-300">
-            <div className="relative h-64 w-full md:h-80 lg:h-96 overflow-hidden">
-                <div className="absolute top-4 right-4 z-10">
-                    <span
-                        className="inline-block bg-cyan-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
-                        ✨ Featured
-                    </span>
-                </div>
-                {post.imageSrc && (
+        <article className="mx-auto max-w-5xl">
+            {post.imageSrc && (
+                <div className="relative aspect-[16/7] overflow-hidden bg-stone-200 dark:bg-stone-800 md:mx-4 lg:mx-8">
                     <Image
                         src={post.imageSrc}
                         alt={post.imageAlt || post.title}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                        sizes="(max-width: 1024px) 100vw, 896px"
                         priority
                     />
-                )}
-                <ImageCreditOverlay author={post?.imageCredit} source={post?.imageSource}/>
-            </div>
+                    <ImageCreditOverlay author={post.imageCredit} source={post.imageSource}/>
+                </div>
+            )}
 
-            <div className="p-8">
-                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-3 leading-tight">
+            <div className="mt-8 max-w-2xl text-left md:ml-12 lg:ml-16">
+                <p className="font-serif text-xs italic text-[var(--accent)]">A featured reflection</p>
+                <h2 className="mt-3 font-serif text-2xl font-normal leading-tight text-stone-900 dark:text-stone-100 md:text-3xl">
                     {post.title}
                 </h2>
+                <p className="mt-4 text-sm text-stone-500 dark:text-stone-400">
+                    {post.category && `${categoryLabels[post.category]} · `}
+                    <time>{formatPostDate(post)}</time>
+                </p>
                 {post.subtitle && (
-                    <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-3 uppercase tracking-wide">
-                        Published on {formatPostDate(post)}
+                    <p className="mt-4 text-sm leading-relaxed text-stone-600 dark:text-stone-300 md:text-base">
+                        {post.subtitle}
                     </p>
                 )}
-                {post.subtitle && (
-                    <p className="text-zinc-600 dark:text-zinc-300 mb-6 leading-relaxed">{post.subtitle}</p>
-                )}
-                <div className="flex">
-                    <LinkButton href={`${NavigationPath.POSTS}/${post.id}`}
-                                ariaLabel={`Learn more about: ${post.title}`} variant="cyan">
-                        Read more
-                    </LinkButton>
-                </div>
+                <Link
+                    href={`/posts/${post.id}`}
+                    className="mt-4 inline-block font-serif text-base italic underline decoration-stone-300 underline-offset-8 transition hover:text-[var(--accent)] focus-ring text-[var(--accent)] dark:decoration-stone-700"
+                >
+                    Continue reading →
+                </Link>
             </div>
         </article>
     );

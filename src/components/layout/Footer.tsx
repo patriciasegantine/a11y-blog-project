@@ -6,26 +6,34 @@ import GitHubIcon from "@/components/icon/github-icon";
 export default function Footer() {
     return (
         <footer aria-label="Footer" role="contentinfo"
-                className="mt-auto border-t border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-800 backdrop-blur">
-            <div className="container mx-auto px-4 py-6 text-sm text-zinc-700 dark:text-zinc-300">
+                className="mt-auto border-t border-stone-300 dark:border-stone-700">
+            <div className="mx-auto max-w-7xl px-5 py-10 text-sm text-stone-600 dark:text-stone-300 sm:px-8 lg:px-10">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <p className="leading-relaxed">
-                        {`© ${new Date().getFullYear()} - Developed by Patricia Segantine`}
+                        {`© ${new Date().getFullYear()} - Built by `}
+                        <a
+                            href="https://patriciasegantine.vercel.app"
+                            className="underline decoration-stone-400 underline-offset-4 transition hover:text-(--accent) focus-ring dark:decoration-stone-600"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Patricia Segantine
+                        </a>
                     </p>
 
                     <div className="flex flex-col md:flex-row md:items-center gap-3">
                         <p className="md:text-right">
-                            This blog is an accessibility showcase.
+                            Writing without a finished map.
                         </p>
 
                         <a
                             href="https://github.com/patriciasegantine/a11y-blog-project"
-                            className="text-zinc-700 dark:text-zinc-300 hover:text-cyan-900 dark:hover:text-cyan-600 transition flex items-center gap-2 rounded focus-ring"
-                            aria-label="Go to GitHub"
+                            className="flex items-center gap-2 text-stone-600 dark:text-stone-300 hover:text-(--accent) transition rounded focus-ring"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <GitHubIcon/>
+                            <GitHubIcon className="h-4 w-4"/>
+                            Source
                         </a>
                     </div>
                 </div>
