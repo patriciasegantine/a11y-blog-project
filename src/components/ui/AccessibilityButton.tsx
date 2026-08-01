@@ -12,7 +12,7 @@ export default function AccessibilityButton() {
         <button
           type="button"
           aria-label="Accessibility information"
-          className="p-2 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 focus-ring transition-colors hover:cursor-pointer"
+          className="p-2 rounded-lg text-(--muted) hover:bg-stone-200 dark:hover:bg-stone-800 focus-ring transition-colors hover:cursor-pointer"
         >
           <FontAwesomeIcon icon={faInfoCircle} className="w-5 h-5"/>
           <span className="sr-only">Open accessibility information</span>

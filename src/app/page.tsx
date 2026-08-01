@@ -1,50 +1,50 @@
 import FeaturedPost from "@/components/sections/FeaturedPost";
 import CardPost from "@/components/ui/CardPost";
 import {db} from "@/lib/data/postsDatabase";
-import {Suspense} from "react";
-import Loading from "@/components/ui/Loading";
+import PageHeader from "@/components/layout/PageHeader";
+import Link from "next/link";
+
+const RECENT_POSTS_COUNT = 5;
 
 export const revalidate = 60;
 export default function Home() {
     const featuredPost = db.getFeaturedPost();
-    const recentsPost = db.getRecentPosts(5);
+    const recentPosts = db.getRecentPosts(RECENT_POSTS_COUNT).filter((post) => !post.isFeatured);
 
     return (
-        <div className="flex flex-col min-h-screen w-full bg-zinc-50 dark:bg-transparent rounded-md shadow">
-            <div className="mx-auto space-y-8">
-                {featuredPost && (
-                    <Suspense fallback={<Loading/>}>
-                        <FeaturedPost post={featuredPost}/>
-                    </Suspense>
-                )}
+        <div className="pb-14">
+            <section className="max-w-5xl pb-10 pt-8 md:pb-14 md:pt-12" aria-labelledby="home-title">
+                <PageHeader
+                    titleId="home-title"
+                    eyebrow="Notes for an unfinished life"
+                    title="There is no manual. There can still be meaning."
+                    description="Notes on life, faith, technology, and everything we learn while becoming."
+                />
+            </section>
 
-                <section className="py-8">
-                    <div className="mb-8">
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                            Recent Posts
+            {featuredPost && <FeaturedPost post={featuredPost}/>}
+
+            <section className="mt-14 max-w-6xl border-t border-stone-300 py-9 dark:border-stone-700 md:py-10" aria-labelledby="recent-posts-title">
+                <div className="mb-5 flex flex-col gap-4 border-l-2 border-[var(--accent)] py-1 pl-5 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <p className="font-serif text-sm italic text-[var(--accent)]">Recent writing</p>
+                        <h2 id="recent-posts-title" className="mt-1 font-serif text-2xl font-normal text-stone-900 dark:text-stone-100 md:text-3xl">
+                            From the journal
                         </h2>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            Latest reflections on identity, work, mental health, and slow growth
-                        </p>
                     </div>
+                    <p className="max-w-md text-sm leading-relaxed text-stone-600 dark:text-stone-300 md:text-right">
+                        Reflections, lessons, and questions worth keeping.
+                    </p>
+                </div>
 
-                    {recentsPost.length > 0 ? (
-                        <div className="space-y-8">
-                            {recentsPost.map((post) => (
-                                <CardPost key={post.id} post={post}/>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="py-8">
-                            <p className="text-center text-gray-600 dark:text-gray-400">
-                                No posts found. Please check back later.
-                            </p>
-                        </div>
-                    )}
-                </section>
-            </div>
+                {recentPosts.map((post) => <CardPost key={post.id} post={post}/>)}
+
+                <div className="mt-6">
+                    <Link href="/posts" className="font-serif text-lg italic underline decoration-stone-300 underline-offset-8 transition hover:text-[var(--accent)] focus-ring text-[var(--accent)] dark:decoration-stone-700">
+                        Browse all writing →
+                    </Link>
+                </div>
+            </section>
         </div>
     );
 }
-
-

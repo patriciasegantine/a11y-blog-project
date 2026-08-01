@@ -10,8 +10,8 @@ import AccessibilityButton from "@/components/ui/AccessibilityButton";
 export default function Header() {
   
   return (<header
-      className="w-full bg-zinc-50 dark:bg-zinc-800 border-b sticky top-0 z-50 border-zinc-200 dark:border-zinc-800">
-      <div className="container mx-auto flex justify-between items-center gap-3 px-4 py-2">
+      className="sticky top-0 z-50 w-full border-b border-stone-300 bg-[#fbf8f1]/95 backdrop-blur dark:border-stone-700 dark:bg-[#1c1b19]/95">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 sm:px-8 lg:px-10">
         <MobileNav/>
         
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition focus-ring">
@@ -20,7 +20,7 @@ export default function Header() {
             alt="The No-Manual Life"
             width={80}
             height={60}
-            className="h-6 md:h-8 w-auto rounded-lg hidden dark:block"
+            className="hidden h-7 w-auto dark:block"
             aria-hidden="true"
           />
           <Image
@@ -28,12 +28,12 @@ export default function Header() {
             alt="The No-Manual Life"
             width={80}
             height={60}
-            className="h-6 md:h-8 w-auto rounded-lg dark:hidden"
+            className="h-7 w-auto dark:hidden"
             aria-hidden="true"
           />
-          <h1 className="text-md md:text-xl font-bold text-zinc-900 dark:text-white">
+          <span className="font-serif text-lg font-normal tracking-wide text-stone-900 dark:text-stone-100 md:text-xl">
             The No-Manual Life
-          </h1>
+          </span>
         </Link>
         
         <div className="flex items-center gap-3">

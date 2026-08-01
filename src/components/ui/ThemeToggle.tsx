@@ -1,12 +1,25 @@
 "use client";
-import React, {useState} from "react";
+import {useSyncExternalStore} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
 
 export default function ThemeToggle() {
-    const [isDark, setIsDark] = useState<boolean | null>(true);
+    const isDark = useSyncExternalStore(
+        (onStoreChange) => {
+            window.addEventListener("themechange", onStoreChange);
+            return () => window.removeEventListener("themechange", onStoreChange);
+        },
+        () => document.documentElement.classList.contains("dark"),
+        () => false,
+    );
 
-    const toggle = () => setIsDark(!isDark);
+    const toggle = () => {
+        const next = !document.documentElement.classList.contains("dark");
+        document.documentElement.classList.toggle("dark", next);
+        document.documentElement.classList.toggle("light", !next);
+        localStorage.setItem("theme", next ? "dark" : "light");
+        window.dispatchEvent(new Event("themechange"));
+    };
 
     return (
         <button
@@ -14,13 +27,9 @@ export default function ThemeToggle() {
             onClick={toggle}
             aria-pressed={!!isDark}
             aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-            className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition hover:cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md px-3 py-2 focus-ring"
+            className="h-10 w-10 cursor-pointer rounded-full text-(--muted) transition hover:bg-stone-200 hover:text-foreground focus-ring dark:hover:bg-stone-800"
         >
-            {isDark ? (
-                <FontAwesomeIcon icon={faSun} className=" h-4 md:h-6 text-yellow-400" aria-hidden="true"/>
-            ) : (
-                <FontAwesomeIcon icon={faMoon} className="h-4 md:h-6 text-zinc-300" aria-hidden="true"/>
-            )}
+            <FontAwesomeIcon icon={isDark ? faSun : faMoon} className="h-4" aria-hidden="true"/>
         </button>
     );
 }
