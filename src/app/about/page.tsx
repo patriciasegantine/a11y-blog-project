@@ -1,133 +1,56 @@
-import React from "react";
 import Image from "next/image";
 import ImageCreditOverlay from "@/components/ui/ImageCreditOverlay";
+import PageHeader from "@/components/layout/PageHeader";
 
-const About = () => {
+export default function About() {
     return (
-        <div
-            aria-labelledby="about-title"
-            className="min-h-screen w-full bg-zinc-50 dark:bg-transparent"
-        >
-            <article className="max-w-4xl mx-auto px-4 py-12 space-y-12">
-                <header className="space-y-4">
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                        Updated February 2026
-                    </p>
-                    <h1
-                        id="about-title"
-                        className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white"
-                    >
-                        About The No-Manual Life
-                    </h1>
+        <article className="pb-14 pt-8 md:pb-20 md:pt-12">
+            <PageHeader
+                eyebrow="About this journal"
+                title="A letter about this place"
+                description="An evolving journal for questions without simple answers."
+            />
 
-                    <div className="relative mt-8 h-80 w-full overflow-hidden rounded-2xl shadow-lg">
-                        <Image
-                            src="/assets/images/about.jpg"
-                            alt="A winding path symbolizing life's journey without a manual"
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 1024px"
-                            priority
-                        />
-                        <ImageCreditOverlay author="Leonardo IA"/>
-                    </div>
-                </header>
+            <figure className="mt-8 mb-16 max-w-6xl md:mt-10 md:mb-20">
+                <div className="relative aspect-32/9 overflow-hidden bg-stone-200 dark:bg-stone-800 md:mx-4 lg:mx-8">
+                    <Image src="/assets/images/about.png" alt="A winding path through a quiet landscape, representing a life without a fixed manual" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 896px" priority/>
+                    <ImageCreditOverlay author="Leonardo IA"/>
+                </div>
+            </figure>
 
-                <section className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                    <p>
-                        <em className="text-zinc-800 dark:text-zinc-200">The No-Manual Life</em> exists because
-                        adulthood doesn't come with
-                        instructions.
-                    </p>
+            <div className="max-w-3xl font-serif text-lg leading-8 text-stone-700 dark:text-stone-300 md:ml-12 md:text-xl md:leading-9 lg:ml-20">
+                <p className="first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-(--accent)">
+                    The No-Manual Life exists because adulthood doesn&apos;t come with a manual. We grow up hearing that clarity arrives with time: that careers eventually make sense, relationships settle into place, faith stops wavering, confidence sticks around for good.
+                </p>
+                <p className="mt-5">
+                    In practice, it rarely works that way. This is where the unfinished parts live: the questions I haven&apos;t resolved, the opinions I&apos;ve changed, the small discoveries and quiet shifts that never quite fit into a tidy story.
+                </p>
 
-                    <p>
-                        At some point, we were told we'd "figure it out." That careers would
-                        make sense. That relationships would settle. That confidence would
-                        arrive quietly, and stay.
-                    </p>
+                <div className="my-14 h-px w-16 bg-(--accent)" aria-hidden="true"/>
 
-                    <p className="font-semibold text-zinc-900 dark:text-white">That's not how it went.</p>
-                </section>
+                <p>
+                    For now, most of what I write about is life itself: identity, work, mental health, timing, the ordinary weight of getting through a day. Further down the line, there may be room for faith and Scripture, thoughts on technology and accessibility, or lessons picked up from building something new.
+                </p>
+                <p className="mt-5">
+                    The topics will shift, because I do too. What stays constant is the intention behind them: to think things through honestly, and to write with some respect for whoever&apos;s reading.
+                </p>
 
-                <section aria-labelledby="in-between-years" className="space-y-6">
-                    <h2
-                        id="in-between-years"
-                        className="text-3xl font-bold text-zinc-900 dark:text-white"
-                    >
-                        The in-between years
-                    </h2>
+                <blockquote className="my-16 border-y border-stone-300 py-10 text-center text-3xl italic leading-snug text-stone-900 dark:border-stone-700 dark:text-stone-100 md:text-4xl">
+                    &ldquo;Not writing as someone who has it figured out, but as someone paying attention.&rdquo;
+                </blockquote>
 
-                    <div className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                        <p>
-                            This is a space for the in-between years: the ones where you're
-                            functional on the outside and quietly questioning everything on the
-                            inside.
-                        </p>
+                <p>
+                    There&apos;s no formula here, no tidy certainty, no expert polish. Just real experience, knowledge earned the hard way, doubt, hope, mistakes, and conversation worth having.
+                </p>
+                <p className="mt-5">
+                    If something here helps you put a name to a feeling, question an assumption, pick up something useful, or simply feel a little less alone, then it&apos;s done its job.
+                </p>
 
-                        <p>
-                            Where progress isn't linear, certainty is rare, and most learning
-                            happens through mistakes you never planned to make.
-                        </p>
-                    </div>
-                </section>
-
-                <section aria-labelledby="topics" className="space-y-6">
-                    <h2
-                        id="topics"
-                        className="text-3xl font-bold text-zinc-900 dark:text-white"
-                    >
-                        What we talk about here
-                    </h2>
-
-                    <ul className="space-y-3 text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed list-disc list-inside marker:text-cyan-600 dark:marker:text-cyan-500">
-                        <li>Identity and timing</li>
-                        <li>Work, money, and meaning</li>
-                        <li>Mental health, without filters or shortcuts</li>
-                        <li>The practical logistics of adult life</li>
-                        <li>Growth that happens slowly, imperfectly, and out of order</li>
-                    </ul>
-
-                    <p className="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed italic">
-                        Not as experts. Not as gurus. Just as people paying attention.
-                    </p>
-                </section>
-
-                <section aria-labelledby="philosophy" className="space-y-6">
-                    <h2
-                        id="philosophy"
-                        className="text-3xl font-bold text-zinc-900 dark:text-white"
-                    >
-                        What this space is (and isn't)
-                    </h2>
-
-                    <div className="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                        <p>
-                            <em className="text-zinc-800 dark:text-zinc-200">The No-Manual Life</em> isn't about fixing
-                            yourself. It's about
-                            understanding yourself while you're still becoming.
-                        </p>
-
-                        <p>This isn't meant to be a single-voice space.</p>
-
-                        <p>
-                            If you have something honest to share, a story, a lesson, a moment of
-                            confusion or quiet clarity, you're welcome to reach out. I'd be glad
-                            to make room for your experience here.
-                        </p>
-                    </div>
-                </section>
-
-                <footer className="pt-8 mt-12 border-t border-zinc-300 dark:border-zinc-700 space-y-4">
-                    <p className="text-lg text-zinc-700 dark:text-zinc-300">
-                        No instructions. No formulas.
-                    </p>
-                    <p className="text-xl font-bold text-zinc-900 dark:text-white">
-                        Figuring life out, one mistake at a time.
-                    </p>
+                <footer className="mt-16 text-right">
+                    <p className="italic text-stone-500 dark:text-stone-400">No perfect map. Keep learning.</p>
+                    <p className="mt-3 text-2xl italic text-stone-900 dark:text-stone-100">Patricia</p>
                 </footer>
-            </article>
-        </div>
+            </div>
+        </article>
     );
-};
-
-export default About;
+}
