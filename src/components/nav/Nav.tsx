@@ -18,8 +18,8 @@ export default function Nav() {
                         aria-current={isActive(link.href) ? "page" : undefined}
                         className={`border-b-2 px-1 py-2 text-sm font-medium transition focus-ring ${
                             isActive(link.href)
-                                ? "border-[var(--accent)] text-zinc-950 dark:text-white"
-                                : "border-transparent text-zinc-600 hover:text-[var(--accent)] dark:text-zinc-300"
+                                ? "border-(--accent) text-foreground"
+                                : "border-transparent text-(--muted) hover:text-(--accent)"
                         }`}
                     >
                         {link.label}

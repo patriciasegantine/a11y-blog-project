@@ -27,7 +27,7 @@ export default function ThemeToggle() {
             onClick={toggle}
             aria-pressed={!!isDark}
             aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-            className="h-10 w-10 cursor-pointer rounded-full text-zinc-600 transition hover:bg-zinc-200 hover:text-zinc-950 focus-ring dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white"
+            className="h-10 w-10 cursor-pointer rounded-full text-(--muted) transition hover:bg-stone-200 hover:text-foreground focus-ring dark:hover:bg-stone-800"
         >
             <FontAwesomeIcon icon={isDark ? faSun : faMoon} className="h-4" aria-hidden="true"/>
         </button>
