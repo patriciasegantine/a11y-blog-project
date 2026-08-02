@@ -12,9 +12,9 @@ export default function About() {
             />
 
             <figure className="mt-8 mb-16 max-w-6xl md:mt-10 md:mb-20">
-                <div className="relative aspect-32/9 overflow-hidden bg-stone-200 dark:bg-stone-800 md:mx-4 lg:mx-8">
-                    <Image src="/assets/images/about.png" alt="A winding path through a quiet landscape, representing a life without a fixed manual" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 896px" priority/>
-                    <ImageCreditOverlay author="Leonardo IA"/>
+                <div className="relative aspect-48/9 overflow-hidden bg-stone-200 dark:bg-stone-800 md:mx-4 lg:mx-8">
+                    <Image src="/assets/images/about.png" alt="A quiet desk by a window with an open journal, a pen, and a cup of coffee, representing reflection and unhurried writing" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 896px" priority/>
+                    <ImageCreditOverlay author="ChatGPT"/>
                 </div>
             </figure>
 
