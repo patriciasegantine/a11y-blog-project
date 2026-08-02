@@ -11,7 +11,7 @@ export default function FeaturedPost({post}: { post: Post }) {
     return (
         <article className="mx-auto max-w-6xl">
             {post.imageSrc && (
-                <div className="relative aspect-16/7 overflow-hidden bg-stone-200 dark:bg-stone-800 md:mx-4 lg:mx-8">
+                <div className="relative aspect-32/9 overflow-hidden bg-stone-200 dark:bg-stone-800 md:mx-4 lg:mx-8">
                     <Image
                         src={post.imageSrc}
                         alt={post.imageAlt || post.title}
