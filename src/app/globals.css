@@ -5,7 +5,7 @@
 :root {
   --background: #fbf8f1;
   --foreground: #292524;
-  --accent: #0891b2;
+  --accent: #155e75;
   --surface: #fffdf8;
   --line: #ddd6c8;
   --muted: #57534e;
@@ -40,7 +40,7 @@ html.dark {
 html.light {
   --background: #fbf8f1;
   --foreground: #292524;
-  --accent: #0891b2;
+  --accent: #155e75;
   --surface: #fffdf8;
   --line: #ddd6c8;
   --muted: #57534e;
