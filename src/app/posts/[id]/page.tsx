@@ -1,8 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import {notFound} from "next/navigation";
 import {db} from "@/lib/data/postsDatabase";
 import ImageCreditOverlay from "@/components/ui/ImageCreditOverlay";
+import PageHeader from "@/components/layout/PageHeader";
 import {categoryLabels} from "@/types/category";
+import {formatPostDate} from "@/utils/formatPostDate";
 import type {Metadata} from "next";
 import {buildPostMetadata} from "@/lib/metadata/postMetadata";
 
@@ -29,60 +32,70 @@ export default async function PostPage({params}: PostPageProps) {
     }
 
     return (
-        <div className="min-h-screen w-full bg-zinc-50 dark:bg-transparent">
-            <article className="max-w-3xl mx-auto px-4 py-10">
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">{post.date}</p>
-                <h1 className="mt-2 text-3xl font-bold text-zinc-900 dark:text-white">
-                    {post.title}
-                </h1>
-                {post.subtitle && (
-                    <p className="mt-3 text-lg text-zinc-700 dark:text-zinc-300">
-                        {post.subtitle}
-                    </p>
-                )}
+        <div className="pb-14 pt-8 md:pb-20 md:pt-12">
+            <article>
+                <Link href="/posts" className="font-serif text-sm italic underline decoration-stone-300 underline-offset-4 transition hover:text-(--accent) focus-ring text-(--accent) dark:decoration-stone-700">
+                    <span aria-hidden="true">←</span> Back to the journal
+                </Link>
+
+                <div className="mt-8">
+                    <PageHeader
+                        variant="article"
+                        eyebrow={
+                            <>
+                                {post.category && <span className="font-serif italic text-(--accent)">{categoryLabels[post.category]}</span>}
+                                {post.category && <span aria-hidden="true">·</span>}
+                                <time>{formatPostDate(post)}</time>
+                            </>
+                        }
+                        title={post.title}
+                        description={post.subtitle}
+                    />
+                </div>
 
                 {post.imageSrc && (
-                    <div className="relative mt-8 h-64 w-full overflow-hidden rounded-2xl shadow">
+                    <div className="relative mt-10 aspect-16/7 w-full max-w-6xl overflow-hidden bg-stone-200 dark:bg-stone-800">
                         <Image
                             src={post.imageSrc}
                             alt={post.imageAlt || post.title}
                             fill
                             className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 768px"
+                            sizes="(max-width: 1280px) 100vw, 1152px"
                             priority
                         />
                         <ImageCreditOverlay author={post.imageCredit} source={post.imageSource}/>
                     </div>
                 )}
 
-                {post.introduction && (
-                    <div className="mt-8 space-y-6 text-zinc-800 dark:text-zinc-200 leading-relaxed">
-                        <p>{post.introduction}</p>
-                        {post.body.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+                <div className="mt-12 max-w-3xl text-stone-800 dark:text-stone-200 md:ml-12 lg:ml-20">
+                    <p className="font-serif text-xl leading-9 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-(--accent) md:text-2xl md:leading-10">
+                        {post.introduction}
+                    </p>
 
-                        {post.category && (
-                            <div className="mt-6">
-                                <span
-                                    className="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-cyan-700 dark:bg-cyan-700 rounded-full">
-                                    {categoryLabels[post.category]}
+                    {post.body.length > 0 && (
+                        <div className="mt-10 space-y-7 font-serif text-lg leading-8 md:text-xl md:leading-9">
+                            {post.body.map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                            ))}
+                        </div>
+                    )}
+
+                    {post.tags && post.tags.length > 0 && (
+                        <div className="mt-12 flex flex-wrap gap-x-4 gap-y-2 border-t border-stone-300 pt-6 font-sans dark:border-stone-700">
+                            {post.tags.map((tag, index) => (
+                                <span key={index} className="text-sm font-medium text-stone-500 dark:text-stone-400">
+                                    #{tag}
                                 </span>
-                            </div>
-                        )}
+                            ))}
+                        </div>
+                    )}
 
-                        {post.tags && post.tags.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mt-4">
-                                {post.tags.map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="px-3 py-1 text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-800 rounded-full"
-                                    >
-                                        #{tag}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                )}
+                    <footer className="border-t border-stone-300 pt-8 font-sans dark:border-stone-700">
+                        <Link href="/posts" className="text-sm font-medium text-(--accent) hover:text-(--accent) focus-ring">
+                            Browse more writing <span aria-hidden="true">→</span>
+                        </Link>
+                    </footer>
+                </div>
             </article>
         </div>
     );
