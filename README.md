@@ -47,7 +47,7 @@ Accessibility is treated as a system-level concern — not a post-build adjustme
 - **Next.js (App Router)**
 - **TypeScript**
 - **Tailwind CSS**
-- **@axe-core/react** (accessibility testing)
+- **axe-core** (development accessibility reports; browser and manual validation pending)
 - **Lighthouse validation**
 - **Vercel deployment**
 

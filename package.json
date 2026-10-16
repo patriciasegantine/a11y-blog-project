@@ -23,11 +23,11 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "@axe-core/react": "^4.11.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "^4.14.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
