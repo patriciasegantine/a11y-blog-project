@@ -22,17 +22,21 @@ export default function FAQ() {
                     <Accordion.Item
                         key={item.id}
                         value={item.id}
-                        className="border border-zinc-200 dark:border-zinc-700 rounded-lg overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-600 transition"
+                        className="border border-zinc-200 dark:border-zinc-700 rounded-lg hover:border-zinc-300 dark:hover:border-zinc-600 transition"
                     >
-                        <Accordion.Trigger
-                            className="w-full px-6 py-4 flex items-center justify-between gap-4 bg-white dark:bg-zinc-800 hover:cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-700/50 transition text-left font-medium text-zinc-900 dark:text-white group">
-                            <span>{item.question}</span>
-                            <FontAwesomeIcon
-                                icon={faChevronDown}
-                                className="w-5 h-5 text-zinc-600 dark:text-zinc-400 flex-shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-180"
-                                aria-hidden="true"
-                            />
-                        </Accordion.Trigger>
+                        <Accordion.Header asChild>
+                            <h3>
+                            <Accordion.Trigger
+                                className="w-full px-6 py-4 flex items-center justify-between gap-4 bg-white dark:bg-zinc-800 hover:cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-700/50 transition focus-ring rounded-lg text-left font-medium text-zinc-900 dark:text-white group">
+                                <span>{item.question}</span>
+                                <FontAwesomeIcon
+                                    icon={faChevronDown}
+                                    className="w-5 h-5 text-zinc-600 dark:text-zinc-400 flex-shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-180"
+                                    aria-hidden="true"
+                                />
+                            </Accordion.Trigger>
+                            </h3>
+                        </Accordion.Header>
 
                         <Accordion.Content
                             className="px-6 py-4 bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 leading-relaxed">

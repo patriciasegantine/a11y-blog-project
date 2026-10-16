@@ -49,7 +49,7 @@ export default function Home() {
 
                     <div className="mt-6">
                         <Link href="/posts" className="font-serif text-lg italic underline decoration-stone-300 underline-offset-8 transition hover:text-(--accent) focus-ring text-(--accent) dark:decoration-stone-700">
-                            Browse all writing →
+                            Browse all writing <span aria-hidden="true">→</span>
                         </Link>
                     </div>
                 </section>
