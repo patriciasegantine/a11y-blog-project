@@ -1,6 +1,8 @@
 "use client";
 
 import {useEffect, useState} from "react";
+import Link from "next/link";
+import * as Dialog from "@radix-ui/react-dialog";
 import {useNavigation} from "@/hooks/useNavigation";
 import MenuIcon from "@/components/icon/menu-icon";
 import CloseIcon from "@/components/icon/close-icon";
@@ -10,77 +12,47 @@ export default function MobileNav() {
     const {navLinks, isActive} = useNavigation();
 
     useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
-        return () => {
-            document.body.style.overflow = "unset";
+        const desktop = window.matchMedia("(min-width: 48rem)");
+        const closeOnDesktop = () => {
+            if (desktop.matches) setIsOpen(false);
         };
-    }, [isOpen]);
-
-    useEffect(() => {
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === "Escape" && isOpen) {
-                setIsOpen(false);
-            }
-        };
-
-        document.addEventListener("keydown", handleEscape);
-        return () => document.removeEventListener("keydown", handleEscape);
-    }, [isOpen]);
+        desktop.addEventListener("change", closeOnDesktop);
+        return () => desktop.removeEventListener("change", closeOnDesktop);
+    }, []);
 
     return (
-        <div className="md:hidden">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                aria-expanded={isOpen}
-                aria-controls="mobile-menu"
-                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-                className="flex h-10 w-10 flex-col items-center justify-center rounded-md transition hover:bg-stone-200 focus-ring dark:hover:bg-stone-800"
-            >
-                <span className="sr-only">{isOpen ? "Close navigation menu" : "Open navigation menu"}</span>
-                {isOpen ? (
-                    <CloseIcon className="h-5 text-foreground"/>
-                ) : (
+        <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
+            <Dialog.Trigger asChild>
+                <button type="button" aria-label="Open navigation menu"
+                    className="flex h-10 w-10 items-center justify-center rounded-md transition hover:bg-stone-200 focus-ring dark:hover:bg-stone-800 md:hidden">
                     <MenuIcon className="h-5 text-foreground"/>
-                )}
-            </button>
-
-            {isOpen && (
-                <div
-                    className="fixed inset-0 bg-black/50 z-40"
-                    onClick={() => setIsOpen(false)}
-                    aria-hidden="true"
-                />
-            )}
-
-            <nav
-                id="mobile-menu"
-                className={`fixed bottom-0 left-0 top-18.25 z-50 w-64 transform border-r border-stone-300 bg-background transition-transform duration-300 ease-in-out dark:border-stone-700 ${
-                    isOpen ? "translate-x-0" : "-translate-x-full"
-                }`}
-                aria-label="Mobile navigation"
-            >
-                <div className="flex flex-col p-4 gap-2">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.label}
-                            href={link.href}
-                            onClick={() => setIsOpen(false)}
-                            aria-current={isActive(link.href) ? "page" : undefined}
-                            className={`transition rounded-md px-4 py-3 font-medium text-left ${
-                                isActive(link.href)
-                                    ? "bg-(--accent) text-stone-950"
-                                    : "text-(--muted) hover:text-foreground hover:bg-stone-200 dark:hover:bg-stone-800"
-                            }`}
-                        >
-                            {link.label}
-                        </a>
-                    ))}
-                </div>
-            </nav>
-        </div>
+                </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+                <Dialog.Overlay className="fixed inset-0 z-60 bg-black/50"/>
+                <Dialog.Content aria-describedby={undefined}
+                    className="fixed inset-y-0 left-0 z-70 w-64 overflow-y-auto border-r border-stone-300 bg-background p-4 dark:border-stone-700">
+                    <div className="mb-4 flex items-center justify-between gap-3">
+                        <Dialog.Title className="font-serif text-xl">Navigation</Dialog.Title>
+                        <Dialog.Close asChild>
+                            <button type="button" aria-label="Close navigation menu" className="flex h-10 w-10 items-center justify-center rounded-md focus-ring">
+                                <CloseIcon className="h-5 text-foreground"/>
+                            </button>
+                        </Dialog.Close>
+                    </div>
+                    <nav aria-label="Mobile navigation" className="flex flex-col gap-2">
+                        {navLinks.map((link) => (
+                            <Link key={link.label} href={link.href} onClick={() => setIsOpen(false)}
+                                aria-current={isActive(link.href) ? "page" : undefined}
+                                className={`rounded-md px-4 py-3 font-medium transition focus-ring ${isActive(link.href)
+                                    ? "bg-(--accent) text-background"
+                                    : "text-(--muted) hover:bg-stone-200 hover:text-foreground dark:hover:bg-stone-800"}`}>
+                                {link.label}
+                            </Link>
+                        ))}
+                    </nav>
+                </Dialog.Content>
+            </Dialog.Portal>
+        </Dialog.Root>
     );
 }

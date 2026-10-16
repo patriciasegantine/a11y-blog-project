@@ -52,62 +52,14 @@ export default async function PostsPage({searchParams}: PostsPageProps) {
             />
 
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_13rem] lg:gap-12">
-                <aside aria-label="Post filters" className="border-t border-stone-300 pt-5 dark:border-stone-700 lg:order-2 lg:sticky lg:top-24 lg:self-start">
-                    <div className="mb-5 flex items-center justify-between gap-3">
-                        <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">Find writing</h2>
-                        {hasFilters && <span className="text-xs text-(--accent)">Active</span>}
-                    </div>
-
-                    <form action="/posts" method="get" role="search" className="space-y-5">
-                        <div>
-                            <label htmlFor="post-search" className="mb-2 block text-xs font-medium text-stone-600 dark:text-stone-400">Title</label>
-                            <input
-                                id="post-search"
-                                name="q"
-                                type="search"
-                                defaultValue={query}
-                                placeholder="Search titles…"
-                                className="min-h-10 w-full border-0 border-b border-stone-400 bg-transparent px-0 py-2 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-0 focus:border-(--accent) dark:border-stone-600 dark:text-stone-100 dark:placeholder:text-stone-500"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="post-category" className="mb-2 block text-xs font-medium text-stone-600 dark:text-stone-400">Subject</label>
-                            <select
-                                id="post-category"
-                                name="category"
-                                defaultValue={activeCategory ?? ""}
-                                className="min-h-10 w-full border-0 border-b border-stone-400 bg-background px-0 py-2 text-stone-700 focus:outline-none focus:ring-0 focus:border-(--accent) dark:border-stone-600 dark:text-stone-300"
-                            >
-                                <option value="">All subjects</option>
-                                {availableCategories.map((category) => <option key={category} value={category}>{categoryLabels[category]}</option>)}
-                            </select>
-                        </div>
-
-                        <button type="submit" className="min-h-9 w-full cursor-pointer border border-stone-400 px-4 py-1.5 text-xs font-medium text-stone-700 transition hover:border-(--accent) hover:text-(--accent) focus-ring dark:border-stone-600 dark:text-stone-300">
-                            Filter
-                        </button>
-                    </form>
-
-                    <div className="mt-5 space-y-3 border-t border-stone-300 pt-4 dark:border-stone-700">
-                        <p className="text-sm text-stone-600 dark:text-stone-400" role="status">
-                            {filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"} found
-                        </p>
-                        {hasFilters && (
-                            <Link href="/posts" className="text-sm font-medium text-(--accent) underline underline-offset-4 hover:text-(--accent) focus-ring">
-                                Clear filters
-                            </Link>
-                        )}
-                    </div>
-                </aside>
-
-                <div className="min-w-0 lg:order-1">
-                    <section aria-label={activeCategory ? `${categoryLabels[activeCategory]} posts` : "All posts"}>
+                <div className="min-w-0">
+                    <section aria-labelledby="posts-heading">
+                        <h2 id="posts-heading" className="sr-only">{activeCategory ? `${categoryLabels[activeCategory]} posts` : "All posts"}</h2>
                         {posts.length > 0 ? (
                             <AnimatedPostsList key={`${currentPage}-${activeCategory ?? ""}-${query}`} posts={posts}/>
                         ) : (
                             <div className="py-14">
-                                <h2 className="font-serif text-2xl text-stone-900 dark:text-stone-100">No writing found</h2>
+                                <h3 className="font-serif text-2xl text-stone-900 dark:text-stone-100">No writing found</h3>
                                 <p className="mt-3 text-stone-600 dark:text-stone-300">Try another title or choose a different subject.</p>
                             </div>
                         )}
@@ -131,7 +83,7 @@ export default async function PostsPage({searchParams}: PostsPageProps) {
                                             href={pageHref(page)}
                                             aria-current={page === currentPage ? "page" : undefined}
                                             aria-label={`Page ${page}`}
-                                            className={`flex h-8 w-8 items-center justify-center rounded-full text-sm transition focus-ring ${page === currentPage ? "bg-(--accent) font-medium text-stone-950" : "text-stone-600 hover:text-(--accent) dark:text-stone-400"}`}
+                                            className={`flex h-8 w-8 items-center justify-center rounded-full text-sm transition focus-ring ${page === currentPage ? "bg-(--accent) font-medium text-background" : "text-stone-600 hover:text-(--accent) dark:text-stone-400"}`}
                                         >
                                             {page}
                                         </Link>
@@ -150,6 +102,54 @@ export default async function PostsPage({searchParams}: PostsPageProps) {
                         </nav>
                     )}
                 </div>
+                <aside aria-label="Post filters" className="border-t border-stone-300 pt-5 dark:border-stone-700 lg:sticky lg:top-24 lg:self-start">
+                    <div className="mb-5 flex items-center justify-between gap-3">
+                        <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">Find writing</h2>
+                        {hasFilters && <span className="text-xs text-(--accent)">Active</span>}
+                    </div>
+
+                    <form action="/posts" method="get" role="search" className="space-y-5">
+                        <div>
+                            <label htmlFor="post-search" className="mb-2 block text-xs font-medium text-stone-600 dark:text-stone-400">Title</label>
+                            <input
+                                id="post-search"
+                                name="q"
+                                type="search"
+                                defaultValue={query}
+                                placeholder="Search titles…"
+                                className="min-h-10 w-full border-0 border-b border-stone-400 bg-transparent px-0 py-2 text-stone-900 placeholder:text-stone-500 focus-ring focus:border-(--accent) dark:border-stone-600 dark:text-stone-100 dark:placeholder:text-stone-500"
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="post-category" className="mb-2 block text-xs font-medium text-stone-600 dark:text-stone-400">Subject</label>
+                            <select
+                                id="post-category"
+                                name="category"
+                                defaultValue={activeCategory ?? ""}
+                                className="min-h-10 w-full border-0 border-b border-stone-400 bg-background px-0 py-2 text-stone-700 focus-ring focus:border-(--accent) dark:border-stone-600 dark:text-stone-300"
+                            >
+                                <option value="">All subjects</option>
+                                {availableCategories.map((category) => <option key={category} value={category}>{categoryLabels[category]}</option>)}
+                            </select>
+                        </div>
+
+                        <button type="submit" className="min-h-9 w-full cursor-pointer border border-stone-400 px-4 py-1.5 text-xs font-medium text-stone-700 transition hover:border-(--accent) hover:text-(--accent) focus-ring dark:border-stone-600 dark:text-stone-300">
+                            Filter
+                        </button>
+                    </form>
+
+                    <div className="mt-5 space-y-3 border-t border-stone-300 pt-4 dark:border-stone-700">
+                        <p className="text-sm text-stone-600 dark:text-stone-400" role="status">
+                            {filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"} found
+                        </p>
+                        {hasFilters && (
+                            <Link href="/posts" className="text-sm font-medium text-(--accent) underline underline-offset-4 hover:text-(--accent) focus-ring">
+                                Clear filters
+                            </Link>
+                        )}
+                    </div>
+                </aside>
             </div>
         </div>
     );

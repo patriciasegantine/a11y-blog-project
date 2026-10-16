@@ -12,8 +12,8 @@ export default function AccessibilityModal() {
   return (
     <Dialog.Portal>
       <Dialog.Overlay className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50"/>
-      <Dialog.Content
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto p-6 z-50 focus:outline-none">
+      <Dialog.Content aria-describedby="accessibility-description"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-xl max-w-2xl w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto p-6 z-50 focus:outline-none">
         <div className="flex items-start justify-between mb-6">
           <div>
             <Dialog.Title className="text-2xl font-bold text-zinc-900 dark:text-white">
@@ -30,6 +30,7 @@ export default function AccessibilityModal() {
         </div>
         
         <div className="space-y-6">
+          <Dialog.Description id="accessibility-description" className="sr-only">Learn about this project and its keyboard navigation.</Dialog.Description>
           <IntroductionSection/>
           <AccessibilityFeaturesSection/>
           <Divider/>
@@ -37,7 +38,7 @@ export default function AccessibilityModal() {
           
           <div className="pt-3 flex justify-end">
             <Dialog.Close
-              className="text-sm text-cyan-500 hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300 hover:cursor-pointer font-medium focus-ring rounded px-2 py-1 transition-colors"
+              className="text-sm text-(--accent) hover:underline hover:cursor-pointer font-medium focus-ring rounded px-2 py-1 transition-colors"
             >
               Got it, start exploring →
             </Dialog.Close>

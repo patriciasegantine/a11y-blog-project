@@ -26,7 +26,7 @@ export default function FeaturedPost({post}: { post: Post }) {
 
             <div className="mt-8 max-w-3xl text-left md:ml-12 lg:ml-16">
                 <p className="font-serif text-xs italic text-(--accent)">A featured reflection</p>
-                <h2 className="mt-3 line-clamp-1 font-serif text-2xl font-normal leading-tight text-stone-900 dark:text-stone-100 md:text-3xl">
+                <h2 className="mt-3 font-serif text-2xl font-normal leading-tight text-stone-900 dark:text-stone-100 md:text-3xl">
                     {post.title}
                 </h2>
                 <p className="mt-4 text-sm text-stone-500 dark:text-stone-400">
@@ -42,7 +42,7 @@ export default function FeaturedPost({post}: { post: Post }) {
                     href={`/posts/${post.id}`}
                     className="mt-4 inline-block font-serif text-base italic underline decoration-stone-300 underline-offset-8 transition hover:text-(--accent) focus-ring text-(--accent) dark:decoration-stone-700"
                 >
-                    Continue reading →
+                    Continue reading<span className="sr-only">: {post.title}</span> <span aria-hidden="true">→</span>
                 </Link>
             </div>
         </article>
